@@ -6,10 +6,76 @@
     <meta content="yes" name="apple-mobile-web-app-capable"/>
     <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
     <meta content="telephone=no" name="format-detection"/>
-    <title>诗尼曼15周年</title>
+    <title>诗尼曼15周年庆</title>
     <link rel="stylesheet" href="__COUPON__/css/reset.css" />
     <link rel="stylesheet" href="__COUPON__/css/animate.min.css">
     <link rel="stylesheet" href="__COUPON__/css/index.css">
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script>
+        wx.config({
+            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: "<{$signPackage['appId']}>", // 必填，公众号的唯一标识
+            timestamp: "<{$signPackage['timestamp']}>", // 必填，生成签名的时间戳
+            nonceStr: "<{$signPackage['nonceStr']}>", // 必填，生成签名的随机串
+            signature: "<{$signPackage['signature']}>",// 必填，签名，见附录1
+            jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+        wx.ready(function () {
+            share();
+        });
+
+
+        // 分享功能
+        function setShare(){
+
+        }
+        function share(){
+            wx.onMenuShareTimeline({
+                title: '诗尼曼15周年庆',
+                desc: '购15周年纪念卡，尊享两重特惠',
+                link: "http://juice.hengdikeji.com/coupon/home",
+                imgUrl: 'http://juice.hengdikeji.com/temp/coupon/index/img/shareImg.png',
+
+                trigger: function (res) {
+                },
+                success: function (res) {
+                    $('#maskErWei').css({
+                        display:'flex'
+                    });
+                    $('#maskErWei').on('click',function(){
+                        $('#maskErWei').hide();
+                    })
+                },
+                cancel: function (res) {
+                },
+                fail: function (res) {
+                }
+            });
+            wx.onMenuShareAppMessage({
+                title: '诗尼曼15周年庆',
+                desc: '购15周年纪念卡，尊享两重特惠',
+                link: "http://juice.hengdikeji.com/coupon/home",
+                imgUrl: 'http://juice.hengdikeji.com/temp/coupon/index/img/shareImg.png',
+                trigger: function (res) {
+                },
+                success: function (res) {
+                    $('#maskErWei').css({
+                        display:'flex'
+                    });
+                    $('#maskErWei').on('click',function(){
+                        $('#maskErWei').hide();
+                    })
+                },
+                cancel: function (res) {
+                },
+                fail: function (res) {
+                }
+            });
+        }
+    </script>
+    <div style="display: none">
+        <script src="https://s22.cnzz.com/z_stat.php?id=1273713078&web_id=1273713078" language="JavaScript"></script>
+    </div>
     <style>
         #app #popUp1{
             z-index: 999;
@@ -23,6 +89,7 @@
             height: 1.2rem;
             width: 3rem !important;
             margin-top: 0.17rem;
+            margin-bottom: 0.17rem;
         }
         .inline select{
             margin: 0 auto;
@@ -89,7 +156,7 @@
 
             <div class="img08" v-on:click="popUp=2"><img src="__COUIMG__/img/left01.png" alt=""></div>
 
-            <div class="img09" v-on:click="winList(0)"><img src="__COUIMG__/img/left02.png" alt=""></div>
+            <div class="img09" v-on:click="winList(0,null)" key="0"><img src="__COUIMG__/img/left02.png" alt=""></div>
             <div class="img10" v-on:click=""><img src="__COUIMG__/img/img06.png" alt=""></div>
 
         </div>
@@ -125,7 +192,7 @@
 
             <div class="list3">
                 <div>
-                    <img src="__COUIMG__/img/erweima.png" alt="">
+                    <img src="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=<{$Qcode}>" alt="">
                 </div>
             </div>
             <div class="list4">
@@ -154,7 +221,7 @@
             </div>
             <div class="list3">
                 <div>
-                    <img src="__COUPON__/img/erweima.png" alt="">
+                    <img src="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=<{$Qcode}>" alt="">
                 </div>
             </div>
             <div class="list4">
@@ -180,7 +247,7 @@
             </div>
             <div class="list3">
                 <div>
-                    <img src="__COUPON__/img/erweima.png" alt="">
+                    <img src="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=<{$Qcode}>" alt="">
                 </div>
             </div>
             <div class="list4">
@@ -196,7 +263,7 @@
         </div>
         <!--填写个人信息-->
         <div id="message" v-if="idx == 6">
-            <div class="list1" v-on:click="idx=2">
+            <div class="list1" v-on:click="idx=1">
                 <img src="__COUPON__/img/button08.png" alt="">
             </div>
             <div class="list2">
@@ -206,7 +273,7 @@
                 <div class="inwrap">
                     <div class="input1">
                         <div>
-                            <span>姓名：</span>
+                            <span>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</span>
 
                             <input type="text" name="uname"  placeholder="请输入姓名">
 
@@ -214,7 +281,7 @@
                     </div>
                     <div class="input2">
                         <div>
-                            <span>电话：</span>
+                            <span>电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话：</span>
                             <input type="text" name="mobile" placeholder="请输入11位手机号码">
 
                         </div>
@@ -244,19 +311,23 @@
                         </div>
                     </div>
                     <div class="input4">
-                        <div>
-                            <span>门店：</span>
-                            <select name="shop" id="shop">
-                                <option value="">请选择门店</option>
-                                <option v-for="item in shops" :value="item.id">{{ item.name }}</option>
-                            </select>
+                        <div style="font-size: 0">
+                            <span>门&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;店：</span>
+                            <divs style="width: 70%">
+                                <select name="shop" id="shop" style="width: 100%">
+                                    <option value="">请选择门店</option>
+                                    <option v-for="item in shops" :value="item.id">{{ item.name }}</option>
+                                </select>
+                            </divs>
+
+                            <div class="icon"></div>
                         </div>
                     </div>
                     <div class="input5">
                         <div style="font-size: 0">
                             <span>定制产品：</span>
-                            <div>
-                                <select name="address" id="" placeholder="请选择">
+                            <div style="width: 70%">
+                                <select name="address" id="" placeholder="请选择" style="width: 100%">
                                     <option value="全屋定制">全屋定制</option>
                                     <option value="橱柜">橱柜</option>
                                     <option value="门窗">门窗</option>
@@ -276,61 +347,51 @@
         </div>
         <!--中奖名单-->
         <div id="winList" v-if="idx == 7">
-            <div class="list1">
+            <div class="list1" v-on:click="idx=1">
                 <img src="__COUPON__/img/button08.png" alt="">
             </div>
             <div class="list2">
                 <img src="__COUPON__/img/title02.png" alt="">
             </div>
-
-            <div class="list3" v-if="false">
+            <div class="list3">
                 <img src="__COUPON__/img/img16.png" alt="">
             </div>
-            <div class="list4" v-if="false">
-                <div class="nav">
-                    <div>
-                        <img src="__COUPON__/img/icon03.png" alt="">
+            <div class="list4">
+                <div class="wrap">
+                    <div class="nav">
+                        <div v-for="(item,index) in awardList" :key="index" :class="item.className" @click="winList(index,item.type)"></div>
                     </div>
-                    <div>
-                        <img src="__COUPON__/img/icon04.png" alt="">
-                    </div>
-                    <div>
-                        <img src="__COUPON__/img/icon05.png" alt="">
-                    </div>
-                    <div>
-                        <img src="__COUPON__/img/icon06.png" alt="">
-                    </div>
-                </div>
-                <div class="cont">
-                    <div class="c1">
-                        <div>
-                            <img src="__COUPON__/img/head01.png" alt="">
-                        </div>
-                        <div>
-                            <div>
-                                <img src="__COUPON__/img/top.png" alt="">
-
-                            </div>
-                        </div>
-                        <div class="c1" v-for="item in ">
-                            <div>
+                    <div class="cont">
+                        <template v-if="winners">
+                            <div class="c1" v-for="item in winners">
                                 <div>
                                     <div>
-                                        <img src="__COUPON__/img/head01.png" alt="">
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <img src="__COUPON__/img/top3.png" alt="">
+                                        <div>
+                                            <img :src="item.headimgurl" alt="">
+                                        </div>
                                     </div>
                                     <div>
-                                        <span>王俊凯 来自网易用户 138****3652</span>
+                                        <div>
+                                            <img v-if="item.type==0" src="__COUPON__/img/top.png" alt="">
+                                            <img v-if="item.type==1" src="__COUPON__/img/top1.png" alt="">
+                                            <img v-if="item.type==2" src="__COUPON__/img/top2.png" alt="">
+                                            <img v-if="item.type==3" src="__COUPON__/img/top3.png" alt="">
+                                        </div>
+                                        <div>
+                                            <span>{{ item.uname }} 来自{{ item.source }} {{ item.mobile }}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </template>
+                        <template v-else>
+                            <div class="c1">
+                                <div>
+                                    还没有名单
+                                </div>
+                            </div>
+                        </template>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -400,10 +461,10 @@
                 status:'<{$status}>',
                 code:"<{$coupon['code']}>",
                 awardList:[
-                    {className:'top1',isSel:false},
-                    {className:'top2',isSel:false},
-                    {className:'top3',isSel:false},
-                    {className:'top4',isSel:false},
+                    {className:'top1 sel',isSel:false,type:0},
+                    {className:'top2',isSel:false,type:1},
+                    {className:'top3',isSel:false,type:2},
+                    {className:'top4',isSel:false,type:3}
                 ],
                 shops:[],
                 winners:[]
@@ -417,22 +478,19 @@
                 this.$nextTick(function () {
                     $('#app #sharePopUp,#app #activityDesc,#app #popUp1').show();
                 });
-
             },
 
             mounted:function () {
 
                 var _this=this;
                 if(_this.step==2){
-                    _this.idx=2;
+                    _this.idx=6;
                 }
                 $('#sharePopUp').css({
                     'display':'block'
                 });
                 this.$nextTick(function () {
                     //弹窗加载
-
-
                     if(this.idx == 1){
                         $('#index .img02,#index .img04,#index .img03,#index .img05,#index .img10,#index .img06,#index .img07').hide();
                         $('#index .img02').show().addClass('animated bounceIn')
@@ -471,18 +529,26 @@
                 })
             },
             methods:{
-                sel:function (index) {
+
+                /*中奖名单*/
+                winList:function(index,type){
+                    var _this=this;
                     var e = event.target;
                     $(e).parent('.nav').find('div').removeClass('sel');
-                    $(e).addClass('sel')
-                },
-                /*中奖名单*/
-                winList:function(type){
-                    var _this=this;
+                    $(e).addClass('sel');
+
                     var url="<{:url('coupon/winList')}>";
                     $.get(url,{type:type},function (res) {
-                        if(!res){
+                        if(!res && _this.idx==1){
                             _this.idx=3;
+                        }else{
+                            _this.idx=7;
+                            if(res.length>=1){
+                                _this.winners=res;
+                            }else{
+                                _this.winners=false;
+                            }
+
                         }
                     },'JSON');
                 },
@@ -514,7 +580,7 @@
                             _this.buy();
                             break;
                         case 1:
-                            _this.idx=2;
+                            _this.idx=6;
                             break;
                         case 2:
                             _this.idx=5;
@@ -556,6 +622,7 @@
                         }else{
                            _this.code=res.mycode;
                            _this.idx=4;
+                           _this.status=2;
                         }
                     },'JSON')
                 },
