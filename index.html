@@ -32,7 +32,20 @@
 </head>
 <body>
     <div id="app">
-        <div id="index" v-if="idx==1">
+        <div id="load" v-if="idx == 0">
+            <div class="list1"><img src="img/loadLogo.png" alt=""></div>
+            <div class="list2 animated bounceIn"><img src="img/loadImg01.png" alt=""></div>
+            <div class="list3">
+                <div>
+                    <img src="img/loading01.png" alt="">
+                    <img class="loading" src="img/loading02.png" alt="">
+                </div>
+            </div>
+            <div class="list4">
+                <span>13%</span>
+            </div>
+        </div>
+        <div id="index" v-if="idx == 1">
             <div class="img01"><img src="img/logo.png" alt=""></div>
             <div class="img02" ><img src="img/img02.png" alt=""/></div>
             <div class="img03" ><img src="img/img03.png" alt=""/></div>
@@ -44,6 +57,49 @@
             <div class="img09"><img src="img/left02.png" alt=""></div>
             <div class="img10"><img src="img/img06.png" alt=""></div>
         </div>
+        <div id="paySuccess" v-if="idx == 2">
+            <div class="list1">
+                <img src="img/img08.png" alt="">
+            </div>
+            <div class="list2">
+                <img src="img/card.png" alt="">
+            </div>
+            <div class="list3">
+                <img src="img/img09.png" alt="">
+            </div>
+            <div class="list4">
+                <img src="img/button04.png" alt="">
+            </div>
+        </div>
+        <div id="index1" v-if="idx == 3">
+            <div class="list1">
+                <img src="img/img11.png" alt="">
+            </div>
+            <div class="list2">
+                <div>
+                    <span>您的抽奖码：369875</span>
+                </div>
+            </div>
+            <div class="list3">
+                <div>
+                    <img src="img/erweima.png" alt="">
+                </div>
+            </div>
+            <div class="list4">
+                <img src="img/img13.png" alt="">
+            </div>
+            <div class="list5">
+                <div>
+                    <div>
+                        <img src="img/button05.png" alt="">
+                    </div>
+                    <div>
+                        <img src="img/button06.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--分享页弹窗-->
         <div id="sharePopUp" v-if="popUp == 0">
             <div>
                 <img src="img/share01.png" alt="">
@@ -66,15 +122,32 @@
                 </div>
             </div>
         </div>
+        <!--购买失败弹窗-->
+        <div id="popUp1" v-if="popUp == 3">
+            <div class="wrap">
+                <div>
+                    <div class="list1">
+                        <img src="img/img10.png" alt="">
+                        <img class="dashed" src="img/dashed.png" alt="">
+                    </div>
+                    <div class="list2">
+                        <span>请输入11位手机号码</span>
+                    </div>
+                    <div class="list3">
+                        <img src="img/button03.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script>
         var App = new Vue({
             el:'#app',
             data:{
-                idx:1,
+                idx:3,
                 //按钮状态
                 button:false,
-                popUp:2
+                popUp:1
             },
 
             mounted:function () {

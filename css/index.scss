@@ -1,11 +1,59 @@
 #app{
   width: 100%;
   height: 100%;
+  background: url("../img/bj01.png") no-repeat;
+  background-size: 100% 100%;
+  #load{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    >div{
+      position: absolute;
+      img{
+        width: 100%;
+        margin: auto;
+      }
+    }
+    .list1{
+      top: 0.6rem;
+      width: 100%;
+      img{
+        width: 30%;
+      }
+    }
+    .list2{
+      top: 0;
+    }
+    .list3{
+      bottom: 3.05rem;
+      >div{
+        width: 65%;
+        margin: auto;
+        position: relative;
+        overflow: hidden;
+        -webkit-border-radius: 0.5rem;
+        -moz-border-radius: 0.5rem;
+        border-radius: 0.5rem;
+        .loading{
+          position: absolute;
+          top: 0;
+          height: 100%;
+        }
+      }
+    }
+    .list4{
+      width: 100%;
+      bottom: 2.25rem;
+      text-align: center;
+      span{
+        color: #fbe24d;
+        font-size: 0.26rem;
+      }
+    }
+  }
   #index{
     width: 100%;
     height: 100%;
-    background: url("../img/bj01.png") no-repeat;
-    background-size: 100% 100%;
     position: relative;
     >div{
       position: absolute;
@@ -73,6 +121,105 @@
       top: 2.3rem;
       img{
         width: 90%;
+      }
+    }
+  }
+  #index1{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    >div{
+      width: 100%;
+      position: absolute;
+      img{
+        width: 100%;
+        margin: auto;
+      }
+    }
+    .list1{
+      top: 1.25rem;
+      img{
+        width: 85%;
+      }
+    }
+    .list2{
+      width: 100%;
+      top: 2.3rem;
+      font-size: 0.3rem;
+      color: #ffffff;
+      text-align: center;
+      >div{
+        width: 60%;
+        display: inline-block;
+        background: url("../img/bj04.png") no-repeat;
+        background-size: 100%;
+        background-position: 0 50%;
+      }
+    }
+    .list3{
+      top: 3.35rem;
+      >div{
+        width: 45%;
+        margin: auto;
+        background: url("../img/img12.png") no-repeat;
+        background-size: 100% 100%;
+        height: 3.8rem;
+        padding: 0.01rem;
+        img{
+          width: 85%;
+          margin-top: 0.17rem;
+        }
+      }
+    }
+    .list4{
+      top: 7.45rem;
+      img{
+        width: 78%;
+      }
+    }
+    .list5{
+      top: 10.8rem;
+      >div{
+        display: flex;
+        margin: auto;
+        width: 85%;
+      }
+    }
+  }
+  #paySuccess{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    >div{
+      position: absolute;
+      width: 100%;
+      img{
+        width: 100%;
+        margin: auto;
+      }
+    }
+    .list1{
+      top: 2.1rem;
+      img{
+        width: 40%;
+      }
+    }
+    .list2{
+      top: 3.35rem;
+      img{
+        width: 95%;
+      }
+    }
+    .list3{
+      top: 7.8rem;
+      img{
+        width:75%;
+      }
+    }
+    .list4{
+      top: 9.3rem;
+      img{
+        width: 50%;
       }
     }
   }
@@ -146,6 +293,58 @@
           top: 0;
           width: 100%;
           height: 0.7rem;
+        }
+      }
+    }
+  }
+  #popUp1{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    .wrap{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      >div{
+        width: 85%;
+        height: 4.35rem;
+        background: url("../img/bj03.png") no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        >div{
+          position: absolute;
+          width: 100%;
+          img{
+            width: 100%;
+            margin: auto;
+          }
+        }
+        .list1{
+          top: 0.55rem;
+          img{
+            width: 50%;
+          }
+          .dashed{
+            width: 85%;
+            margin-top: 0.1rem;
+          }
+        }
+        .list2{
+          font-size: 0.28rem;
+          color: #ffffff;
+          text-align: center;
+          top: 2rem;
+        }
+        .list3{
+          top: 2.85rem;
+          img{
+            width: 50%;
+          }
         }
       }
     }
