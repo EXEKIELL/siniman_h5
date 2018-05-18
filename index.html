@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div class="list4">
-                <span>13%</span>
+                <span>{{num}}%</span>
             </div>
         </div>
         <!--首页-->
@@ -210,22 +210,22 @@
                         <div>
                             <span>省市区：</span>
 
-                            <div class="iniline">
-                                <select name="province" id="province"  v-on:change="region('province',1,'city')">
-                                    <option value="1">请选择省</option>
-                                    <option value="1">北京</option>
-                                    <option value="2">广州</option>
-                                </select>
-                            </div>
-                            <div class="iniline">
-                                <select name="city" id="city"  v-on:change="region('city',2,'area')">
-                                    <option value="">请选择城市</option>
-                                </select>
-                            </div>
-                            <div class="iniline">
-                                <select name="area" id="area"  v-on:change="getShop()">
-                                    <option value="">请选择地区</option>
-                                </select>
+                            <div>
+                                <div class="inline">
+                                    <select name="province" id="province" v-on:change="region('province',1,'city')">
+                                        <option value="1"></option>
+                                    </select>
+                                </div>
+                                <div class="inline">
+                                    <select name="city" id="city" v-on:change="region('city',2,'area')">
+                                        <option value="1"></option>
+                                    </select>
+                                </div>
+                                <div class="inline">
+                                    <select name="area" id="area"  v-on:change="getShop()">
+                                        <option value="1"></option>
+                                    </select>
+                                </div>
                             </div>
 
                             <div class="icon"></div>
@@ -243,11 +243,15 @@
                     <div class="input5">
                         <div>
                             <span>定制产品：</span>
-                            <select name="address" id="">
-                                <option value="全屋定制">全屋定制</option>
-                                <option value="橱柜">橱柜</option>
-                                <option value="门窗">门窗</option>
-                            </select>
+
+                            <div class="inline">
+                                <select name="address" id="">
+                                    <option value="全屋定制">全屋定制</option>
+                                    <option value="橱柜">橱柜</option>
+                                    <option value="门窗">门窗</option>
+                                </select>
+                            </div>
+
                             <div class="icon"></div>
                         </div>
                     </div>
@@ -375,6 +379,8 @@
             el:'#app',
             data:{
                 idx:1,
+                num:1,
+                timer1:null,
                 //按钮状态
                 button:false,
                 popUp:1,
@@ -390,14 +396,17 @@
                     {className:'top4',isSel:false},
                 ],
                 form:{
-                    uname:'',
-                    mobile:'',
-                    shop:'',
-                    address:''
-                },
-                shops:[]
+
+                }
             },
 
+
+            watch:function(){
+
+            },
+            updated:function(){
+
+            },
 
             mounted:function () {
 
@@ -407,29 +416,44 @@
                 }
                 this.$nextTick(function () {
                     //弹窗加载
-                    $('#sharePopUp,#activityDesc,#popUp1').show();
-                    // this.show1 = true
-                    $('#index .img02,#index .img04,#index .img03,#index .img05,#index .img10,#index .img06,#index .img07').hide();
-                    $('#index .img02').show().addClass('animated bounceIn');
-                    setTimeout(function () {
-                        $('#index .img04').show().addClass('animated bounceIn')
-                    },100);
-                    setTimeout(function () {
-                        $('#index .img03').show().addClass('animated bounceIn')
-                    },300);
-                    setTimeout(function () {
-                        $('#index .img05').show().addClass('animated bounceIn')
-                    },600);
-                    setTimeout(function () {
-                        $('#index .img10').show().addClass('animated bounceIn')
-                    },1000);
-                    setTimeout(function () {
-                        $('#index .img06').show().addClass('animated bounceIn')
-                    },1000);
-                    setTimeout(function () {
-                        $('#index .img07').show().addClass('animated bounceIn')
-                    },1200);
 
+
+                    $('#app #sharePopUp,#app #activityDesc,#app #popUp1').show();
+                    if(this.idx == 1){
+                        $('#index .img02,#index .img04,#index .img03,#index .img05,#index .img10,#index .img06,#index .img07').hide();
+                        $('#index .img02').show().addClass('animated bounceIn')
+                        setTimeout(function () {
+                            $('#index .img04').show().addClass('animated bounceIn')
+                        },100)
+                        setTimeout(function () {
+                            $('#index .img03').show().addClass('animated bounceIn')
+                        },300)
+                        setTimeout(function () {
+                            $('#index .img05').show().addClass('animated bounceIn')
+                        },600)
+                        setTimeout(function () {
+                            $('#index .img10').show().addClass('animated bounceIn')
+                        },1000)
+                        setTimeout(function () {
+                            $('#index .img06').show().addClass('animated bounceIn')
+                        },1000)
+                        setTimeout(function () {
+                            $('#index .img07').show().addClass('animated bounceIn')
+                        },1200)
+                    }
+                    //加载
+                    if(this.idx == 0){
+                        const that = this
+                        this.timer1 = setInterval(function () {
+                            if(that.num>100){
+                                that.idx = 1
+                                clearInterval(that.timer1)
+                            }else{
+                                that.num++;
+                                $('#load .loading').css('width',that.num+'%')
+                            }
+                        },10)
+                    }
                 })
             },
             methods:{
