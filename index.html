@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
     <title>诗尼曼15周年</title>
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/animate.min.css">
@@ -52,11 +55,12 @@
             <div class="img04" ><img src="img/img04.png" alt=""/></div>
             <div class="img05" ><img src="img/img05.png" alt=""/></div>
             <div class="img06"><img src="img/img01.png" alt=""></div>
-            <div class="img07"><img :src="button?'img/button02.png':'img/button01.png'" alt=""></div>
-            <div class="img08"><img src="img/left01.png" alt=""></div>
-            <div class="img09"><img src="img/left02.png" alt=""></div>
+            <div class="img07"><img :src="button?'img/button02.png':'img/button01.png'" @click="pay" alt=""></div>
+            <div class="img08" @click="activityShow"><img src="img/left01.png" alt=""></div>
+            <div class="img09" @click="winList"><img src="img/left02.png" alt=""></div>
             <div class="img10"><img src="img/img06.png" alt=""></div>
         </div>
+        <!--购买成功-->
         <div id="paySuccess" v-if="idx == 2">
             <div class="list1">
                 <img src="img/img08.png" alt="">
@@ -68,7 +72,7 @@
                 <img src="img/img09.png" alt="">
             </div>
             <div class="list4">
-                <img src="img/button04.png" alt="">
+                <img src="img/button04.png" @click="wrMessage" alt="">
             </div>
         </div>
         <!--6月16日公布中奖名单-->
@@ -165,39 +169,39 @@
                     <div class="input1">
                         <div>
                             <span>姓名：</span>
-                            <input type="text" placeholder="请输入姓名">
+                            <input type="text" placeholder="请输入姓名" v-model="form.name">
                         </div>
                     </div>
                     <div class="input2">
                         <div>
                             <span>电话：</span>
-                            <input type="text" placeholder="请输入11位手机号码">
+                            <input type="text" placeholder="请输入11位手机号码" v-model="form.phone">
                         </div>
                     </div>
                     <div class="input3">
                         <div>
                             <span>省市区：</span>
-                            <input type="text" placeholder="请选择">
+                            <input type="text" placeholder="请选择" v-model="form.addr">
                             <div class="icon"></div>
                         </div>
                     </div>
                     <div class="input4">
                         <div>
                             <span>店名：</span>
-                            <input type="text" placeholder="请输入店名">
+                            <input type="text" placeholder="请输入店名" v-model="form.shopName">
                         </div>
                     </div>
                     <div class="input5">
                         <div>
                             <span>定制产品：</span>
-                            <input type="text" placeholder="请选择">
+                            <input type="text" placeholder="请选择" v-model="form.product">
                             <div class="icon"></div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="list3">
-                <div>
+                <div @click="submit">
                     <img src="img/button03.png" alt="">
                 </div>
             </div>
@@ -210,74 +214,98 @@
             <div class="list2">
                 <img src="img/title02.png" alt="">
             </div>
-            <div class="list3" v-if="false">
+            <div class="list3">
                 <img src="img/img16.png" alt="">
             </div>
-            <div class="list4" v-if="false">
-                <div class="nav">
-                    <div>
-                        <img src="img/icon03.png.png" alt="">
+            <div class="list4">
+                <div class="wrap">
+                    <div class="nav">
+                        <div v-for="(item,index) in awardList" :key="index" :class="item.className" @click="sel(index)"></div>
                     </div>
-                    <div>
-                        <img src="img/icon04.png" alt="">
-                    </div>
-                    <div>
-                        <img src="img/icon05.png" alt="">
-                    </div>
-                    <div>
-                        <img src="img/icon06.png" alt="">
-                    </div>
-                </div>
-                <div class="cont">
-                    <div class="c1">
-                        <div>
-                            <img src="img/head01.png" alt="">
-                        </div>
-                        <div>
+                    <div class="cont">
+                        <div class="c1">
                             <div>
-                                <img src="img/top.png" alt="">
-                            </div>
-                            <div>
-                                <span>王俊凯 来自网易用户 138****3652</span>
+                                <div>
+                                    <div>
+                                        <img src="img/head01.png" alt="">
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <img src="img/top.png" alt="">
+                                    </div>
+                                    <div>
+                                        <span>王俊凯 来自网易用户 138****3652</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="c2">
-                        <div>
-                            <img src="img/head01.png" alt="">
-                        </div>
-                        <div>
+                        <div class="c1">
                             <div>
-                                <img src="img/top1.png" alt="">
-                            </div>
-                            <div>
-                                <span>王俊凯 来自网易用户 138****3652</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="c3">
-                        <div>
-                            <img src="img/head01.png" alt="">
-                        </div>
-                        <div>
-                            <div>
-                                <img src="img/top2.png" alt="">
-                            </div>
-                            <div>
-                                <span>王俊凯 来自网易用户 138****3652</span>
+                                <div>
+                                    <div>
+                                        <img src="img/head01.png" alt="">
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <img src="img/top1.png" alt="">
+                                    </div>
+                                    <div>
+                                        <span>王俊凯 来自网易用户 138****3652</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="c4">
-                        <div>
-                            <img src="img/head01.png" alt="">
-                        </div>
-                        <div>
+                        <div class="c1">
                             <div>
-                                <img src="img/top3.png" alt="">
+                                <div>
+                                    <div>
+                                        <img src="img/head01.png" alt="">
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <img src="img/top2.png" alt="">
+                                    </div>
+                                    <div>
+                                        <span>王俊凯 来自网易用户 138****3652</span>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+                        <div class="c1">
                             <div>
-                                <span>王俊凯 来自网易用户 138****3652</span>
+                                <div>
+                                    <div>
+                                        <img src="img/head01.png" alt="">
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <img src="img/top3.png" alt="">
+                                    </div>
+                                    <div>
+                                        <span>王俊凯 来自网易用户 138****3652</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="c1">
+                            <div>
+                                <div>
+                                    <div>
+                                        <img src="img/head01.png" alt="">
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <img src="img/top3.png" alt="">
+                                    </div>
+                                    <div>
+                                        <span>王俊凯 来自网易用户 138****3652</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -297,13 +325,13 @@
                     <img src="img/img07.png" alt="">
                 </div>
                 <div class="list2">
-                    <div>
+                    <div @click="close">
                         <img src="img/button03.png" alt="">
                     </div>
                 </div>
                 <div class="list3">
                     <img src="img/icon01.png" alt="">
-                    <div></div>
+                    <div @click="close"></div>
                 </div>
             </div>
         </div>
@@ -329,13 +357,55 @@
         var App = new Vue({
             el:'#app',
             data:{
-                idx:7,
+                idx:6,
                 //按钮状态
                 button:false,
-                popUp:1
+                popUp:1,
+                awardList:[
+                    {className:'top1',isSel:false},
+                    {className:'top2',isSel:false},
+                    {className:'top3',isSel:false},
+                    {className:'top4',isSel:false},
+                ],
+                form:{
+                    name:'',
+                    phone:'',
+                    addr:'',
+                    shopName:'',
+                    product:''
+                }
             },
-
+            methods:{
+              sel:function (index) {
+                  var e = event.target;
+                  $(e).parent('.nav').find('div').removeClass('sel');
+                  $(e).addClass('sel')
+              },
+                submit:function () {
+                    console.log(1)
+                },
+                activityShow:function () {
+                    this.popUp = 2
+                },
+                close:function () {
+                    this.popUp = 1
+                },
+                winList:function () {
+                    this.idx = 7
+                },
+                pay:function () {
+                    if(this.button == false){
+                        this.idx = 2
+                    }else{
+                        this.idx = 5
+                    }
+                },
+                wrMessage:function () {
+                    this.idx = 6
+                }
+            },
             mounted:function () {
+
                 this.$nextTick(function () {
                     // this.show1 = true
                     $('#index .img02,#index .img04,#index .img03,#index .img05,#index .img10,#index .img06,#index .img07').hide();
