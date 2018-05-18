@@ -35,6 +35,7 @@
 </head>
 <body>
     <div id="app">
+        <!--加载页-->
         <div id="load" v-if="idx == 0">
             <div class="list1"><img src="img/loadLogo.png" alt=""></div>
             <div class="list2 animated bounceIn"><img src="img/loadImg01.png" alt=""></div>
@@ -48,6 +49,7 @@
                 <span>13%</span>
             </div>
         </div>
+        <!--首页-->
         <div id="index" v-if="idx == 1">
             <div class="img01"><img src="img/logo.png" alt=""></div>
             <div class="img02" ><img src="img/img02.png" alt=""/></div>
@@ -158,6 +160,9 @@
         </div>
         <!--填写个人信息-->
         <div id="message" v-if="idx == 6">
+            <select name="sel" id="se">
+                <option value="请选择省">请选择省</option>
+            </select>
             <div class="list1">
                 <img src="img/button08.png" alt="">
             </div>
@@ -313,29 +318,31 @@
             </div>
         </div>
         <!--分享页弹窗-->
-        <div id="sharePopUp" v-if="popUp == 0">
+        <div id="sharePopUp" v-if="popUp == 0" @click="close">
             <div>
                 <img src="img/share01.png" alt="">
             </div>
         </div>
         <!--活动说明弹窗-->
         <div id="activityDesc" v-if="popUp == 2">
-            <div class="wrap">
-                <div class="list1">
-                    <img src="img/img07.png" alt="">
-                </div>
-                <div class="list2">
-                    <div @click="close">
-                        <img src="img/button03.png" alt="">
+            <div>
+                <div class="wrap">
+                    <div class="list1">
+                        <img src="img/img07.png" alt="">
                     </div>
-                </div>
-                <div class="list3">
-                    <img src="img/icon01.png" alt="">
-                    <div @click="close"></div>
+                    <div class="list2">
+                        <div @click="close">
+                            <img src="img/button03.png" alt="">
+                        </div>
+                    </div>
+                    <div class="list3">
+                        <img src="img/icon01.png" alt="">
+                        <div @click="close"></div>
+                    </div>
                 </div>
             </div>
         </div>
-        <!--购买失败弹窗-->
+        <!--提交失败弹窗-->
         <div id="popUp1" v-if="popUp == 3">
             <div class="wrap">
                 <div>
@@ -347,7 +354,7 @@
                         <span>请输入11位手机号码</span>
                     </div>
                     <div class="list3">
-                        <img src="img/button03.png" alt="">
+                        <img src="img/button03.png" alt="" @click="close">
                     </div>
                 </div>
             </div>
@@ -402,11 +409,13 @@
                 },
                 wrMessage:function () {
                     this.idx = 6
-                }
+                },
             },
             mounted:function () {
 
                 this.$nextTick(function () {
+                    //弹窗加载
+                    $('#sharePopUp,#activityDesc,#popUp1').show();
                     // this.show1 = true
                     $('#index .img02,#index .img04,#index .img03,#index .img05,#index .img10,#index .img06,#index .img07').hide();
                     $('#index .img02').show().addClass('animated bounceIn')
