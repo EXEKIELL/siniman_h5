@@ -183,7 +183,23 @@
                     <div class="input3">
                         <div>
                             <span>省市区：</span>
-                            <input type="text" placeholder="请选择" v-model="form.addr">
+                            <div>
+                                <div class="inline">
+                                    <select name="" id="province">
+                                        <option value="1"></option>
+                                    </select>
+                                </div>
+                                <div class="inline">
+                                    <select name="" id="city">
+                                        <option value="1"></option>
+                                    </select>
+                                </div>
+                                <div class="inline">
+                                    <select name="" id="area">
+                                        <option value="1"></option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="icon"></div>
                         </div>
                     </div>
@@ -196,7 +212,11 @@
                     <div class="input5">
                         <div>
                             <span>定制产品：</span>
-                            <input type="text" placeholder="请选择" v-model="form.product">
+                            <div class="inline">
+                                <select name="" id="province">
+                                    <option value="1"></option>
+                                </select>
+                            </div>
                             <div class="icon"></div>
                         </div>
                     </div>
@@ -363,7 +383,7 @@
             data:{
                 num:1,
                 timer1:null,
-                idx:0,
+                idx:6,
                 //按钮状态
                 button:false,
                 popUp:1,
