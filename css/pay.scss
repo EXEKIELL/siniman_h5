@@ -1,0 +1,80 @@
+body{
+  width: 100%;
+  height: 100%;
+  background: url("../img/bj01.png") no-repeat;
+  background-size: 100% 100%;
+}
+#index{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  >div{
+    position: absolute;
+    img{
+      width: 100%;
+      margin: auto;
+    }
+  }
+  .img01{
+    top: 0.4rem;
+    left: 0.4rem;
+    width: 75%;
+  }
+  .img02{
+    top: 2.45rem;
+    width: 47%;
+    right: 1.05rem;
+    z-index: 100;
+  }
+  .img03{
+    top: 3rem;
+    right: 1.05rem;
+    width: 40%;
+    z-index: 115;
+  }
+  .img04{
+    top: 2.75rem;
+    left: 1.3rem;
+    width: 42%;
+    z-index: 105;
+  }
+  .img05{
+    width: 100%;
+    z-index: 120;
+    top: 2.6rem;
+    img{
+      width: 85%;
+    }
+  }
+  .img06{
+    top: 8.1rem;
+    img{
+      width: 90%;
+    }
+  }
+  .img07{
+    top: 10.6rem;
+    width: 100%;
+    img{
+      width: 40%;
+      margin: auto;
+    }
+  }
+  .img08,.img09{
+    z-index: 1000;
+    width: 8%;
+    right: 0;
+  }
+  .img08{
+    top: 0.2rem;
+  }
+  .img09{
+    top: 1.82rem;
+  }
+  .img10{
+    top: 2.3rem;
+    img{
+      width: 90%;
+    }
+  }
+}

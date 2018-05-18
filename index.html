@@ -6,6 +6,7 @@
     <meta content="yes" name="apple-mobile-web-app-capable"/>
     <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
     <meta content="telephone=no" name="format-detection"/>
+
     <title>诗尼曼15周年庆</title>
     <link rel="stylesheet" href="__COUPON__/css/reset.css" />
     <link rel="stylesheet" href="__COUPON__/css/animate.min.css">
@@ -94,6 +95,15 @@
         .inline select{
             margin: 0 auto;
         }
+        #music {
+            position: fixed;
+            top: 0.4rem;
+            right: 0.3rem;
+            width: 32px;
+            height: 32px;
+            z-index: 10000; }
+
+
     </style>
     <!--rem单位-->
     <script>
@@ -442,6 +452,8 @@
             </div>
         </div>
     </div>
+    <img src="img/music.png" id="music" />
+    <audio src="music/music01.mp3" hidden="hidden" preload loop="loop" autoplay="autoplay" id="bg"></audio>
     <script>
         layui.use('layer', function(){
             var layer = layui.layer;
@@ -481,6 +493,10 @@
             },
 
             mounted:function () {
+                function audioAutoPlay(id){
+                    var audio = document.getElementById(id);
+                    audio.play();
+
 
                 var _this=this;
                 if(_this.step==2){
@@ -489,6 +505,13 @@
                 $('#sharePopUp').css({
                     'display':'block'
                 });
+
+                    document.addEventListener("WeixinJSBridgeReady", function () {
+                        audio.play();
+                    }, false);
+                }
+                audioAutoPlay('bg');
+
                 this.$nextTick(function () {
                     //弹窗加载
                     if(this.idx == 1){
@@ -654,7 +677,39 @@
                     },'JSON');
                 }
             }
-        })
+        });
+
+        //音乐开启
+        function music(){
+            //音乐
+            var music = 0;
+            var musicOpen = true;
+            var musicTween = setInterval(function() {
+                music += 2;
+                $('#music').css('transform', "rotate(" + music + "deg)");
+                if(music == 360) {
+                    music = 0;
+                }
+            }, 10);
+            $('#music').on('touchstart', function() {
+                if(musicOpen == true) {
+                    musicOpen = false;
+                    clearInterval(musicTween);
+                    $('#bg')[0].pause();
+                } else {
+                    musicOpen = true;
+                    musicTween = setInterval(function() {
+                        music += 2;
+                        $('#music').css('transform', "rotate(" + music + "deg)");
+                        if(music == 360) {
+                            music = 0;
+                        }
+                    }, 10);
+                    $('#bg')[0].play();
+                }
+            });
+        }
+        music();
     </script>
 </body>
 </html>
