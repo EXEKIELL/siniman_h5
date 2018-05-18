@@ -65,14 +65,14 @@
             <div class="img06"><img src="__COUIMG__/img/img01.png" alt=""></div>
 
             <div class="img07" v-on:click="mycoupone()">
-                <img :src="button?'__COUIMG__/img/button02.png':'__COUIMG__/img/button01.png'" alt="">
+                <img :src="status==0?'__COUIMG__/img/button01.png':'__COUIMG__/img/button02.png'" alt="">
             </div>
 
             <div class="img08" v-on:click="popUp==2"><img src="__COUIMG__/img/left01.png" alt=""></div>
             <div class="img09"><img src="__COUIMG__/img/left02.png" alt=""></div>
             <div class="img10"><img src="__COUIMG__/img/img06.png" alt=""></div>
         </div>
-
+        <!--购买成功-->
         <div id="paySuccess" v-if="idx == 2">
             <div class="list1">
                 <img src="__COUIMG__/img/img08.png" alt="">
@@ -83,7 +83,7 @@
             <div class="list3">
                 <img src="__COUIMG__/img/img09.png" alt="">
             </div>
-            <div class="list4">
+            <div class="list4" v-on:click="idx=6">
                 <img src="__COUIMG__/img/button04.png" alt="">
             </div>
         </div>
@@ -126,7 +126,7 @@
             </div>
             <div class="list2">
                 <div>
-                    <span>您的抽奖码：369875</span>
+                    <span>您的抽奖码：{{ code }}</span>
                 </div>
             </div>
             <div class="list3">
@@ -152,7 +152,7 @@
             </div>
             <div class="list2">
                 <div>
-                    <span>您的抽奖码：369875</span>
+                    <span>您的抽奖码：{{ code }}</span>
                 </div>
             </div>
             <div class="list3">
@@ -173,7 +173,7 @@
         </div>
         <!--填写个人信息-->
         <div id="message" v-if="idx == 6">
-            <div class="list1">
+            <div class="list1" v-on:click="idx=2">
                 <img src="__COUPON__/img/button08.png" alt="">
             </div>
             <div class="list2">
@@ -184,19 +184,36 @@
                     <div class="input1">
                         <div>
                             <span>姓名：</span>
-                            <input type="text" placeholder="请输入姓名">
+                            <input type="text" name="uname" placeholder="请输入姓名">
                         </div>
                     </div>
                     <div class="input2">
                         <div>
                             <span>电话：</span>
-                            <input type="text" placeholder="请输入11位手机号码">
+                            <input type="text" name="mobile" placeholder="请输入11位手机号码">
                         </div>
                     </div>
                     <div class="input3">
                         <div>
                             <span>省市区：</span>
-                            <input type="text" placeholder="请选择">
+                            <div class="iniline">
+                                <select name="province" id="province" v-on:change="(this,'city')">
+                                    <option value="1">请选择省</option>
+                                    <option value="1">北京</option>
+                                    <option value="2">上海</option>
+                                    <option value="3">广州</option>
+                                </select>
+                            </div>
+                            <div class="iniline">
+                                <select name="city" id="city">
+                                    <option value="">请选择城市</option>
+                                </select>
+                            </div>
+                            <div class="iniline">
+                                <select name="area" id="area">
+                                    <option value="">请选择地区</option>
+                                </select>
+                            </div>
                             <div class="icon"></div>
                         </div>
                     </div>
@@ -235,7 +252,7 @@
             <div class="list4" v-if="false">
                 <div class="nav">
                     <div>
-                        <img src="__COUPON__/img/icon03.png.png" alt="">
+                        <img src="__COUPON__/img/icon03.png" alt="">
                     </div>
                     <div>
                         <img src="__COUPON__/img/icon04.png" alt="">
@@ -393,6 +410,19 @@
                             _this.idx=3;
                             break;
                     }
+                },
+                edit:function(){
+                    var uname=$('[name="uname"]').val();
+                    var mobile=$('[name="mobile"]').val();
+                },
+                region:function(val,obj){
+                    var url="<{:url('coupon/region')}>";
+                    console.log(val);
+//                    $.post(url,{
+//                        id:val
+//                    },function(res){
+//                        $('#'+obj).html(res.list);
+//                    },'JSON');
                 }
             }
         })
