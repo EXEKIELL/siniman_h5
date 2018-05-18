@@ -193,7 +193,7 @@
                         <div>
                             <span>姓名：</span>
 
-                            <input type="text" name="uname" placeholder="请输入姓名">
+                            <input type="text" name="uname"  placeholder="请输入姓名">
 
                         </div>
                     </div>
@@ -209,20 +209,19 @@
                             <span>省市区：</span>
 
                             <div class="iniline">
-                                <select name="province" id="province" v-on:change="(this,'city')">
+                                <select name="province" id="province"  v-on:change="region('province',1,'city')">
                                     <option value="1">请选择省</option>
                                     <option value="1">北京</option>
-                                    <option value="2">上海</option>
-                                    <option value="3">广州</option>
+                                    <option value="2">广州</option>
                                 </select>
                             </div>
                             <div class="iniline">
-                                <select name="city" id="city">
+                                <select name="city" id="city"  v-on:change="region('city',2,'area')">
                                     <option value="">请选择城市</option>
                                 </select>
                             </div>
                             <div class="iniline">
-                                <select name="area" id="area">
+                                <select name="area" id="area"  v-on:change="getShop()">
                                     <option value="">请选择地区</option>
                                 </select>
                             </div>
@@ -233,13 +232,17 @@
                     <div class="input4">
                         <div>
                             <span>店名：</span>
-                            <input type="text" placeholder="请输入店名" v-model="form.shopName">
+                            <select name="shop" id="shop"></select>
                         </div>
                     </div>
                     <div class="input5">
                         <div>
                             <span>定制产品：</span>
-                            <input type="text" placeholder="请选择" v-model="form.product">
+                            <select name="address" id="">
+                                <option value="全屋定制">全屋定制</option>
+                                <option value="橱柜">橱柜</option>
+                                <option value="门窗">门窗</option>
+                            </select>
                             <div class="icon"></div>
                         </div>
                     </div>
@@ -295,12 +298,12 @@
                             <div>
                                 <div>
                                     <div>
-                                        <img src="img/head01.png" alt="">
+                                        <img src="__COUPON__/img/head01.png" alt="">
                                     </div>
                                 </div>
                                 <div>
                                     <div>
-                                        <img src="img/top3.png" alt="">
+                                        <img src="__COUPON__/img/top3.png" alt="">
                                     </div>
                                     <div>
                                         <span>王俊凯 来自网易用户 138****3652</span>
@@ -335,7 +338,7 @@
                     <img src="__COUIMG__/img/icon01.png" alt="">
                     <div></div>
                     <div @click="close">
-                        <img src="img/button03.png" alt="">
+                        <img src="__COUIMG__/img/button03.png" alt="">
                     </div>
 
                 </div>
@@ -381,7 +384,14 @@
                     {className:'top2',isSel:false},
                     {className:'top3',isSel:false},
                     {className:'top4',isSel:false},
-                ]
+                ],
+                form:{
+                    uname:'',
+                    mobile:'',
+                    shop:'',
+                    address:'',
+
+                }
 
             },
             mounted:function () {
@@ -465,14 +475,32 @@
                     var uname=$('[name="uname"]').val();
                     var mobile=$('[name="mobile"]').val();
                 },
-                region:function(val,obj){
+                region:function(div,type,obj){
                     var url="<{:url('coupon/region')}>";
-                    console.log(val);
-//                    $.post(url,{
-//                        id:val
-//                    },function(res){
-//                        $('#'+obj).html(res.list);
-//                    },'JSON');
+                    var val=$('#'+div).val();
+                    $.get(url,{
+                        id:val,
+                        type:type
+                    },function(res){
+                        $('#'+obj).html(res.list);
+                        if(type==1){
+                            $('#area').html(res.list2);
+                        }
+                    },'JSON');
+
+                },
+                getShop:function () {
+                    var province=$('#province').val();
+                    var city=$('#province').val();
+                    var area=$('#area').val();
+                    var url="<{:url('coupon/getshop')}>";
+                    $.get(url,{
+                        province:province,
+                        city:city,
+                        area:area,
+                    },function (res) {
+                        $('#shop').html(res.list);
+                    },'JSON');
                 }
             }
         })
