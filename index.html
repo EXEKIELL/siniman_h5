@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <title>诗尼曼15周年</title>
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/animate.min.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="__COUPON__/css/reset.css" />
+    <link rel="stylesheet" href="__COUPON__/css/animate.min.css">
+    <link rel="stylesheet" href="__COUPON__/css/index.css">
+    <style>
+        #app #popUp1{
+            z-index: 999;
+        }
+    </style>
     <!--rem单位-->
     <script>
         (function(doc, win) {
@@ -28,17 +33,23 @@
         })(document, window);
     </script>
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <script src="js/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+
+    <link rel="stylesheet" href="__GROUP__/layui/css/layui.mobile.css">
+    <script src="__GROUP__/layui/layui.js"></script>
+    <script type="text/javascript">
+        var imgpath='__COUIMG__';
+    </script>
 </head>
 <body>
     <div id="app">
         <div id="load" v-if="idx == 0">
-            <div class="list1"><img src="img/loadLogo.png" alt=""></div>
-            <div class="list2 animated bounceIn"><img src="img/loadImg01.png" alt=""></div>
+            <div class="list1"><img src="__COUIMG__/img/loadLogo.png" alt=""></div>
+            <div class="list2 animated bounceIn"><img src="__COUIMG__/img/loadImg01.png" alt=""></div>
             <div class="list3">
                 <div>
-                    <img src="img/loading01.png" alt="">
-                    <img class="loading" src="img/loading02.png" alt="">
+                    <img src="__COUIMG__/img/loading01.png" alt="">
+                    <img class="loading" src="__COUIMG__/img/loading02.png" alt="">
                 </div>
             </div>
             <div class="list4">
@@ -46,56 +57,64 @@
             </div>
         </div>
         <div id="index" v-if="idx == 1">
-            <div class="img01"><img src="img/logo.png" alt=""></div>
-            <div class="img02" ><img src="img/img02.png" alt=""/></div>
-            <div class="img03" ><img src="img/img03.png" alt=""/></div>
-            <div class="img04" ><img src="img/img04.png" alt=""/></div>
-            <div class="img05" ><img src="img/img05.png" alt=""/></div>
-            <div class="img06"><img src="img/img01.png" alt=""></div>
-            <div class="img07"><img :src="button?'img/button02.png':'img/button01.png'" alt=""></div>
-            <div class="img08"><img src="img/left01.png" alt=""></div>
-            <div class="img09"><img src="img/left02.png" alt=""></div>
-            <div class="img10"><img src="img/img06.png" alt=""></div>
+            <div class="img01"><img src="__COUIMG__/img/logo.png" alt=""></div>
+            <div class="img02" ><img src="__COUIMG__/img/img02.png" alt=""/></div>
+            <div class="img03" ><img src="__COUIMG__/img/img03.png" alt=""/></div>
+            <div class="img04" ><img src="__COUIMG__/img/img04.png" alt=""/></div>
+            <div class="img05" ><img src="__COUIMG__/img/img05.png" alt=""/></div>
+            <div class="img06"><img src="__COUIMG__/img/img01.png" alt=""></div>
+
+            <div class="img07" v-on:click="mycoupone()">
+                <img :src="button?'__COUIMG__/img/button02.png':'__COUIMG__/img/button01.png'" alt="">
+            </div>
+
+            <div class="img08" v-on:click="popUp==2"><img src="__COUIMG__/img/left01.png" alt=""></div>
+            <div class="img09"><img src="__COUIMG__/img/left02.png" alt=""></div>
+            <div class="img10"><img src="__COUIMG__/img/img06.png" alt=""></div>
         </div>
+
         <div id="paySuccess" v-if="idx == 2">
             <div class="list1">
-                <img src="img/img08.png" alt="">
+                <img src="__COUIMG__/img/img08.png" alt="">
             </div>
             <div class="list2">
-                <img src="img/card.png" alt="">
+                <img src="__COUIMG__/img/card.png" alt="">
             </div>
             <div class="list3">
-                <img src="img/img09.png" alt="">
+                <img src="__COUIMG__/img/img09.png" alt="">
             </div>
             <div class="list4">
-                <img src="img/button04.png" alt="">
+                <img src="__COUIMG__/img/button04.png" alt="">
             </div>
         </div>
+
         <!--6月16日公布中奖名单-->
         <div id="index1" v-if="idx == 3">
             <div class="list1">
-                <img src="img/img11.png" alt="">
+                <img src="__COUIMG__/img/img11.png" alt="">
             </div>
+            <if condition="$coupon['code']">
             <div class="list2">
                 <div>
-                    <span>您的抽奖码：369875</span>
+                    <span>您的抽奖码：<{$coupon['code']}></span>
                 </div>
             </div>
+            </if>
             <div class="list3">
                 <div>
-                    <img src="img/erweima.png" alt="">
+                    <img src="__COUIMG__/img/erweima.png" alt="">
                 </div>
             </div>
             <div class="list4">
-                <img src="img/img13.png" alt="">
+                <img src="__COUIMG__/img/img13.png" alt="">
             </div>
             <div class="list5">
                 <div>
                     <div>
-                        <img src="img/button05.png" alt="">
+                        <img src="__COUIMG__/img/button05.png" alt="">
                     </div>
                     <div>
-                        <img src="img/button06.png" alt="">
+                        <img src="__COUIMG__/img/button06.png" alt="">
                     </div>
                 </div>
             </div>
@@ -103,22 +122,22 @@
         <!--分享页弹窗-->
         <div id="sharePopUp" v-if="popUp == 0">
             <div>
-                <img src="img/share01.png" alt="">
+                <img src="__COUIMG__/img/share01.png" alt="">
             </div>
         </div>
         <!--活动说明弹窗-->
         <div id="activityDesc" v-if="popUp == 2">
             <div class="wrap">
                 <div class="list1">
-                    <img src="img/img07.png" alt="">
+                    <img src="__COUIMG__/img/img07.png" alt="">
                 </div>
                 <div class="list2">
                     <div>
-                        <img src="img/button03.png" alt="">
+                        <img src="__COUIMG__/img/button03.png" alt="">
                     </div>
                 </div>
                 <div class="list3">
-                    <img src="img/icon01.png" alt="">
+                    <img src="__COUIMG__/img/icon01.png" alt="">
                     <div></div>
                 </div>
             </div>
@@ -128,54 +147,107 @@
             <div class="wrap">
                 <div>
                     <div class="list1">
-                        <img src="img/img10.png" alt="">
-                        <img class="dashed" src="img/dashed.png" alt="">
+                        <img src="__COUIMG__/img/img10.png" alt="">
+                        <img class="dashed" src="__COUIMG__/img/dashed.png" alt="">
                     </div>
                     <div class="list2">
-                        <span>请输入11位手机号码</span>
+                        <span>{{ msg }}</span>
                     </div>
-                    <div class="list3">
-                        <img src="img/button03.png" alt="">
+                    <div class="list3" v-on:click="popUp=1">
+                        <img src="__COUIMG__/img/button03.png" alt="">
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <script>
+        layui.use('layer', function(){
+            var layer = layui.layer;
+        });
         var App = new Vue({
             el:'#app',
             data:{
-                idx:3,
+                idx:1,
                 //按钮状态
                 button:false,
-                popUp:1
+                popUp:1,
+                token:'<{$token}>',
+                msg:'',
+                step:'<{$step}>',
+                status:'<{$status}>'
             },
 
             mounted:function () {
+                var _this=this;
+                if(_this.step==2){
+                    _this.idx=2;
+                }
+
                 this.$nextTick(function () {
                     // this.show1 = true
                     $('#index .img02,#index .img04,#index .img03,#index .img05,#index .img10,#index .img06,#index .img07').hide();
-                    $('#index .img02').show().addClass('animated bounceIn')
+                    $('#index .img02').show().addClass('animated bounceIn');
                     setTimeout(function () {
                         $('#index .img04').show().addClass('animated bounceIn')
-                    },100)
+                    },100);
                     setTimeout(function () {
                         $('#index .img03').show().addClass('animated bounceIn')
-                    },300)
+                    },300);
                     setTimeout(function () {
                         $('#index .img05').show().addClass('animated bounceIn')
-                    },600)
+                    },600);
                     setTimeout(function () {
                         $('#index .img10').show().addClass('animated bounceIn')
-                    },1000)
+                    },1000);
                     setTimeout(function () {
                         $('#index .img06').show().addClass('animated bounceIn')
-                    },1000)
+                    },1000);
                     setTimeout(function () {
                         $('#index .img07').show().addClass('animated bounceIn')
-                    },1200)
+                    },1200);
 
                 })
+            },
+            methods:{
+
+                buy:function(){
+                    layer.load(2,{
+                        shade:0.6
+                    });
+                    var url="<{:url('coupon/create')}>";
+                    var _this=this;
+                    $.post(url,{
+                        __token__:_this.token
+                    },function(res){
+                        layer.closeAll();
+                        _this.token=res.token;
+
+                        if(res.code==0){
+                            _this.popUp=3;
+                            _this.msg=res.msg;
+                        }else{
+                            window.location.href=res.url;
+                        }
+                    },'JSON');
+                },
+                mycoupone:function(){
+                    var _this=this;
+                    var status=parseInt(_this.status);
+                    switch (status){
+                        case 0:
+                            _this.buy();
+                            break;
+                        case 1:
+                            _this.idx=2;
+                            break;
+                        case 2:
+                            _this.idx=3;
+                            break;
+                        default:
+                            _this.idx=3;
+                            break;
+                    }
+                }
             }
         })
     </script>

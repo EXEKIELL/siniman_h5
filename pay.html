@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>支付中</title>
+</head>
+<body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="__COUPON__/css/reset.css" />
+<link rel="stylesheet" href="__COUPON__/css/animate.min.css">
+<link rel="stylesheet" href="__COUPON__/css/index.css">
+<script>
+    (function(doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                var clientWidth = docEl.clientWidth;
+                if(!clientWidth) return;
+                if(clientWidth >= 750) {
+                    docEl.style.fontSize = '100px';
+                } else {
+                    docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                }
+            };
+
+        if(!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+<script type="text/javascript">
+
+    //调用微信JS api 支付
+
+
+    function onBridgeReady() {
+        WeixinJSBridge.invoke(
+            'getBrandWCPayRequest',
+        <{:json_encode($jsApiParameters)}>,
+            function (res) {
+                if (res.err_msg == "get_brand_wcpay_request:ok") {
+                    window.location.href="<{:url('coupon/index',['step'=>2])}>";
+//
+                }     // 使用以上方式判断前端返回,微信团队郑重提示:res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。
+                if (res.err_msg == "get_brand_wcpay_request:cancel") {
+
+                }
+                if(res.err_msg == "get_brand_wcpay_request:fail"){
+
+
+                }
+
+            }
+    );
+//        closeLoading();
+    }
+
+    if (typeof WeixinJSBridge == "undefined") {
+        if (document.addEventListener) {
+            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+        } else if (document.attachEvent) {
+            document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+        }
+    } else {
+
+    }
+
+</script>
+
+<div id="app">
+    <div id="index">
+        <div class="img01"><img src="__COUIMG__/img/logo.png" alt=""></div>
+        <div class="img02" ><img src="__COUIMG__/img/img02.png" alt=""/></div>
+        <div class="img03" ><img src="__COUIMG__/img/img03.png" alt=""/></div>
+        <div class="img04" ><img src="__COUIMG__/img/img04.png" alt=""/></div>
+        <div class="img05" ><img src="__COUIMG__/img/img05.png" alt=""/></div>
+        <div class="img06"><img src="__COUIMG__/img/img01.png" alt=""></div>
+        <div class="img07">
+            <img src="__COUIMG__/img/button01.png" alt="">
+        </div>
+        <div class="img08"><img src="__COUIMG__/img/left01.png" alt=""></div>
+        <div class="img09"><img src="__COUIMG__/img/left02.png" alt=""></div>
+        <div class="img10"><img src="__COUIMG__/img/img06.png" alt=""></div>
+    </div>
+</div>
+
+</body>
+</html>
