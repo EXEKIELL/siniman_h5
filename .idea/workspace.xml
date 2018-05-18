@@ -2,69 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf601615-a29e-44f4-a2aa-4e4046e6eba7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/index.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/css/index.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/css/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/bj01.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/bj01.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/bj02.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/bj02.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/bj03.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/bj03.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/bj05.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/bj05.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/bj06.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/bj06.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/bj07.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/bj07.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/button01.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/button01.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/button02.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/button02.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/button03.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/button03.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/button04.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/button04.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/button05.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/button05.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/button06.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/button06.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/button07.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/button07.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/button08.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/button08.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/card.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/card.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/dashed.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/dashed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/erweima.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/erweima.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/head01.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/head01.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/icon01.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/icon01.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/icon02.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/icon02.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/icon03.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/icon03.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/icon03_sel.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/icon03_sel.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/icon04.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/icon04.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/icon04_sel.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/icon04_sel.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/icon05.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/icon05.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/icon05_sel.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/icon05_sel.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/icon06.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/icon06.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/icon06_sel.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/icon06_sel.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/img01.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/img01.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/img02.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/img02.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/img03.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/img03.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/img04.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/img04.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/img05.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/img05.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/img06.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/img06.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/img07.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/img07.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/img08.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/img08.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/img09.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/img09.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/img10.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/img10.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/img11.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/img11.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/img12.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/img12.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/img13.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/img13.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/img14.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/img14.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/img15.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/img15.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/img16.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/img16.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/left01.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/left01.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/left02.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/left02.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/loadImg01.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/loadImg01.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/loadLogo.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/loadLogo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/loading01.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/loading01.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/loading02.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/loading02.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/share01.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/share01.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/title01.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/title01.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/title02.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/title02.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/top.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/top.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/top1.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/top1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/top2.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/top2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/top3.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/top3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -84,14 +23,14 @@
             <file leaf-file-name="index.scss" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/css/index.scss">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="912">
-                    <caret line="110" column="20" lean-forward="true" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
+                  <state relative-caret-position="304">
+                    <caret line="332" column="36" selection-start-line="332" selection-start-column="36" selection-end-line="332" selection-end-column="36" />
                     <folding>
                       <element signature="e#122#938#0" />
+                      <element signature="e#947#2007#0" />
                       <element signature="e#2017#2927#0" />
                       <element signature="e#3129#4231#0" />
                       <element signature="e#4302#5465#0" />
-                      <element signature="e#5476#6698#0" />
                       <element signature="e#7156#8028#0" />
                       <element signature="e#2021#2512#0" />
                       <element signature="e#2526#2804#0" />
@@ -112,8 +51,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-38">
-              <caret line="34" column="7" lean-forward="true" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
+            <state relative-caret-position="304">
+              <caret line="159" column="24" selection-start-line="159" selection-start-column="17" selection-end-line="159" selection-end-column="24" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" />
@@ -162,8 +101,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/css/index.scss" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/css/index.scss" />
       </list>
     </option>
   </component>
@@ -237,12 +176,12 @@
       <option name="presentableId" value="Default" />
       <updated>1526552308427</updated>
       <workItem from="1526552309827" duration="9976000" />
-      <workItem from="1526603709054" duration="19256000" />
+      <workItem from="1526603709054" duration="19563000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29232000" />
+    <option name="totallyTimeSpent" value="29539000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="831" y="18" width="1069" height="994" extended-state="0" />
@@ -320,29 +259,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/index.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="912">
-          <caret line="110" column="20" lean-forward="true" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
-          <folding>
-            <element signature="e#122#938#0" />
-            <element signature="e#2017#2927#0" />
-            <element signature="e#3129#4231#0" />
-            <element signature="e#4302#5465#0" />
-            <element signature="e#5476#6698#0" />
-            <element signature="e#7156#8028#0" />
-            <element signature="e#2021#2512#0" />
-            <element signature="e#2526#2804#0" />
-            <element signature="e#2820#3870#0" />
-            <element signature="e#3880#3890#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-38">
-          <caret line="34" column="7" lean-forward="true" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
+        <state relative-caret-position="304">
+          <caret line="159" column="24" selection-start-line="159" selection-start-column="17" selection-end-line="159" selection-end-column="24" />
           <folding>
             <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" />
@@ -353,6 +273,25 @@
             <element signature="n#div#0;n#div#1;n#div#0;n#div#3;n#div#7;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#5;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/index.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="332" column="36" selection-start-line="332" selection-start-column="36" selection-end-line="332" selection-end-column="36" />
+          <folding>
+            <element signature="e#122#938#0" />
+            <element signature="e#947#2007#0" />
+            <element signature="e#2017#2927#0" />
+            <element signature="e#3129#4231#0" />
+            <element signature="e#4302#5465#0" />
+            <element signature="e#7156#8028#0" />
+            <element signature="e#2021#2512#0" />
+            <element signature="e#2526#2804#0" />
+            <element signature="e#2820#3870#0" />
+            <element signature="e#3880#3890#0" />
           </folding>
         </state>
       </provider>
