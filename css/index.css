@@ -254,6 +254,10 @@
       #app #message > div img {
         width: 100%;
         margin: auto; }
+    #app #message select {
+      font-size: 0.28rem;
+      color: #ffffff;
+      background-color: transparent; }
     #app #message .list1 {
       top: 0.25rem;
       left: 0.25rem;
