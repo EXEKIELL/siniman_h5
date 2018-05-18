@@ -10,6 +10,15 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="css/index.css">
+    <style>
+        #music {
+            position: fixed;
+            top: 0.4rem;
+            right: 0.3rem;
+            width: 32px;
+            height: 32px;
+            z-index: 10000; }
+    </style>
     <!--rem单位-->
     <script>
         (function(doc, win) {
@@ -377,6 +386,8 @@
             </div>
         </div>
     </div>
+    <img src="img/music.png" id="music" />
+    <audio src="music/bg.mp3" hidden="hidden" preload loop="loop" autoplay="autoplay" id="bg"></audio>
     <script>
         var App = new Vue({
             el:'#app',
@@ -440,7 +451,15 @@
                 })
             },
             mounted:function () {
+                function audioAutoPlay(id){
+                    var audio = document.getElementById(id);
+                    audio.play();
 
+                    document.addEventListener("WeixinJSBridgeReady", function () {
+                        audio.play();
+                    }, false);
+                }
+                audioAutoPlay('bg');
                 this.$nextTick(function () {
                     //弹窗加载
                     if(this.idx == 1){
@@ -480,7 +499,39 @@
                     }
                 })
             }
-        })
+        });
+
+        //音乐开启
+        function music(){
+            //音乐
+            var music = 0;
+            var musicOpen = true;
+            var musicTween = setInterval(function() {
+                music += 2;
+                $('#music').css('transform', "rotate(" + music + "deg)");
+                if(music == 360) {
+                    music = 0;
+                }
+            }, 10);
+            $('#music').on('touchstart', function() {
+                if(musicOpen == true) {
+                    musicOpen = false;
+                    clearInterval(musicTween);
+                    $('#bg')[0].pause();
+                } else {
+                    musicOpen = true;
+                    musicTween = setInterval(function() {
+                        music += 2;
+                        $('#music').css('transform', "rotate(" + music + "deg)");
+                        if(music == 360) {
+                            music = 0;
+                        }
+                    }, 10);
+                    $('#bg')[0].play();
+                }
+            });
+        }
+        music();
     </script>
 </body>
 </html>
