@@ -46,6 +46,7 @@
 </head>
 <body>
     <div id="app">
+        <!--加载页-->
         <div id="load" v-if="idx == 0">
             <div class="list1"><img src="__COUIMG__/img/loadLogo.png" alt=""></div>
             <div class="list2 animated bounceIn"><img src="__COUIMG__/img/loadImg01.png" alt=""></div>
@@ -59,6 +60,7 @@
                 <span>13%</span>
             </div>
         </div>
+        <!--首页-->
         <div id="index" v-if="idx == 1">
 
             <div class="img01"><img src="__COUIMG__/img/logo.png" alt=""></div>
@@ -118,10 +120,10 @@
             </div>
             <div class="list5">
                 <div>
-                    <div>
+                    <div v-on:click="idx=1">
                         <img src="__COUIMG__/img/button05.png" alt="">
                     </div>
-                    <div>
+                    <div v-on:click="popUp=2">
                         <img src="__COUIMG__/img/button06.png" alt="">
                     </div>
                 </div>
@@ -147,7 +149,7 @@
             </div>
             <div class="list5">
                 <div>
-                    <div>
+                    <div v-on:click="idx=1">
                         <img src="__COUPON__/img/button07.png" alt="">
                     </div>
                 </div>
@@ -232,7 +234,10 @@
                     <div class="input4">
                         <div>
                             <span>店名：</span>
-                            <select name="shop" id="shop"></select>
+                            <select name="shop" id="shop">
+                                <option value="">请选择</option>
+                                <option v-for="item in shops" :value="item.id">{{ item.name }}</option>
+                            </select>
                         </div>
                     </div>
                     <div class="input5">
@@ -249,10 +254,8 @@
                 </div>
             </div>
             <div class="list3">
-
-                <div>
+                <div v-on:click="edit()">
                     <img src="__COUPON__/img/button03.png" alt="">
-
                 </div>
             </div>
         </div>
@@ -317,13 +320,14 @@
             </div>
         </div>
         <!--分享页弹窗-->
-        <div id="sharePopUp" v-if="popUp == 0">
+        <div id="sharePopUp" v-if="popUp == 0" @click="close">
             <div>
                 <img src="__COUIMG__/img/share01.png" alt="">
             </div>
         </div>
         <!--活动说明弹窗-->
         <div id="activityDesc" v-if="popUp == 2">
+
             <div class="wrap">
                 <div class="list1">
                     <img src="__COUIMG__/img/img07.png" alt="">
@@ -340,11 +344,10 @@
                     <div @click="close">
                         <img src="__COUIMG__/img/button03.png" alt="">
                     </div>
-
                 </div>
             </div>
         </div>
-        <!--购买失败弹窗-->
+        <!--提交失败弹窗-->
         <div id="popUp1" v-if="popUp == 3">
             <div class="wrap">
                 <div>
@@ -355,8 +358,10 @@
                     <div class="list2">
                         <span>{{ msg }}</span>
                     </div>
+
                     <div class="list3" v-on:click="popUp=1">
                         <img src="__COUIMG__/img/button03.png" alt="">
+
                     </div>
                 </div>
             </div>
@@ -369,7 +374,6 @@
         var App = new Vue({
             el:'#app',
             data:{
-
                 idx:1,
                 //按钮状态
                 button:false,
@@ -378,7 +382,7 @@
                 msg:'',
                 step:'<{$step}>',
                 status:'<{$status}>',
-                code:"<{isset($coupon['code'])?$coupon['code']?:''}>",
+                code:"<{$coupon['code']}>",
                 awardList:[
                     {className:'top1',isSel:false},
                     {className:'top2',isSel:false},
@@ -389,20 +393,21 @@
                     uname:'',
                     mobile:'',
                     shop:'',
-                    address:'',
-
-                }
-
+                    address:''
+                },
+                shops:[]
             },
+
+
             mounted:function () {
 
                 var _this=this;
                 if(_this.step==2){
                     _this.idx=2;
                 }
-
-
                 this.$nextTick(function () {
+                    //弹窗加载
+                    $('#sharePopUp,#activityDesc,#popUp1').show();
                     // this.show1 = true
                     $('#index .img02,#index .img04,#index .img03,#index .img05,#index .img10,#index .img06,#index .img07').hide();
                     $('#index .img02').show().addClass('animated bounceIn');
@@ -432,6 +437,10 @@
                     var e = event.target;
                     $(e).parent('.nav').find('div').removeClass('sel');
                     $(e).addClass('sel')
+                },
+                /*中奖名单*/
+                winList:function(){
+
                 },
                 buy:function(){
                     layer.load(2,{
@@ -472,8 +481,39 @@
                     }
                 },
                 edit:function(){
+                    layer.load(2,{
+                        shade:0.6
+                    });
+                    var _this=this;
                     var uname=$('[name="uname"]').val();
                     var mobile=$('[name="mobile"]').val();
+                    var province=$('[name="province"]').text();
+                    var city=$('[name="city"]').text();
+                    var area=$('[name="area"]').text();
+                    var shop=$('[name="shop"]').val();
+                    var address=$('[name="address"]').val();
+                    var url="<{:url('coupon/update')}>";
+                    $.post(url,{
+                        __token__:_this.token,
+                        uname:uname,
+                        mobile:mobile,
+                        province:province,
+                        city:city,
+                        area:area,
+                        shop:shop,
+                        address:address,
+                        id:"<{$coupon['id']}>"
+                    },function(res){
+                        layer.closeAll();
+                        _this.token=res.token;
+                        if(res.code==0){
+                            _this.popUp=3;
+                            _this.msg=res.msg;
+                        }else{
+                           _this.code=res.mycode;
+                           _this.idx=4;
+                        }
+                    },'JSON')
                 },
                 region:function(div,type,obj){
                     var url="<{:url('coupon/region')}>";
@@ -487,9 +527,9 @@
                             $('#area').html(res.list2);
                         }
                     },'JSON');
-
                 },
                 getShop:function () {
+                    var _this=this;
                     var province=$('#province').val();
                     var city=$('#province').val();
                     var area=$('#area').val();
@@ -499,7 +539,7 @@
                         city:city,
                         area:area,
                     },function (res) {
-                        $('#shop').html(res.list);
+                        _this.shops=res;
                     },'JSON');
                 }
             }

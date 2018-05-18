@@ -54,32 +54,32 @@
       left: 0.4rem;
       width: 75%; }
     #app #index .img02 {
-      top: 3.35rem;
+      top: 2.95rem;
       width: 47%;
       right: 1.05rem;
       z-index: 100; }
     #app #index .img03 {
-      top: 3.9rem;
+      top: 3.5rem;
       right: 1.05rem;
       width: 40%;
       z-index: 115; }
     #app #index .img04 {
-      top: 3.65rem;
+      top: 3.25rem;
       left: 1.3rem;
       width: 42%;
       z-index: 105; }
     #app #index .img05 {
       width: 100%;
       z-index: 120;
-      top: 3.5rem; }
+      top: 3.1rem; }
       #app #index .img05 img {
         width: 85%; }
     #app #index .img06 {
-      top: 9rem; }
+      top: 8.6rem; }
       #app #index .img06 img {
         width: 90%; }
     #app #index .img07 {
-      top: 11.5rem;
+      top: 11.1rem;
       width: 100%; }
       #app #index .img07 img {
         width: 40%;
@@ -256,8 +256,10 @@
         margin: auto; }
     #app #message select {
       font-size: 0.28rem;
-      color: #ffffff;
-      background-color: transparent; }
+      background-color: #ffffff;
+      border: 2px solid #000000;
+      border-radius: 0.13rem;
+      padding: 0.07rem 0.05rem; }
     #app #message .list1 {
       top: 0.25rem;
       left: 0.25rem;
@@ -439,6 +441,7 @@
       #app #paySuccess .list4 img {
         width: 50%; }
   #app #sharePopUp {
+    display: none;
     position: fixed;
     width: 100%;
     height: 100%;
@@ -461,44 +464,49 @@
     left: 0;
     z-index: 1000;
     background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-    #app #activityDesc .wrap {
-      width: 90%;
-      height: 75%;
-      background: url("../img/bj02.png") no-repeat;
-      background-size: 100% 100%;
-      position: relative; }
-      #app #activityDesc .wrap > div img {
-        width: 100%; }
-      #app #activityDesc .wrap .list1 {
-        position: absolute;
-        width: 100%;
-        height: 65%;
-        overflow-y: scroll;
-        top: 1.65rem; }
-        #app #activityDesc .wrap .list1 img {
-          width: 85%;
-          margin: auto; }
-      #app #activityDesc .wrap .list2 {
-        width: 100%;
-        position: absolute;
-        bottom: 0.65rem; }
-        #app #activityDesc .wrap .list2 > div {
-          margin: auto;
-          width: 40%; }
-      #app #activityDesc .wrap .list3 {
-        position: absolute;
-        top: -1rem;
-        right: 0;
-        width: 10%; }
-        #app #activityDesc .wrap .list3 > div {
+    display: none; }
+    #app #activityDesc > div {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      #app #activityDesc > div .wrap {
+        width: 90%;
+        height: 75%;
+        background: url("../img/bj02.png") no-repeat;
+        background-size: 100% 100%;
+        position: relative; }
+        #app #activityDesc > div .wrap > div img {
+          width: 100%; }
+        #app #activityDesc > div .wrap .list1 {
           position: absolute;
-          top: 0;
           width: 100%;
-          height: 0.7rem; }
+          height: 65%;
+          overflow-y: scroll;
+          top: 1.65rem; }
+          #app #activityDesc > div .wrap .list1 img {
+            width: 85%;
+            margin: auto; }
+        #app #activityDesc > div .wrap .list2 {
+          width: 100%;
+          position: absolute;
+          bottom: 0.65rem; }
+          #app #activityDesc > div .wrap .list2 > div {
+            margin: auto;
+            width: 40%; }
+        #app #activityDesc > div .wrap .list3 {
+          position: absolute;
+          top: -1rem;
+          right: 0;
+          width: 10%; }
+          #app #activityDesc > div .wrap .list3 > div {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 0.7rem; }
   #app #popUp1 {
+    display: none;
     position: fixed;
     width: 100%;
     height: 100%;
