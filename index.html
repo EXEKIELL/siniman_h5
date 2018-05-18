@@ -33,7 +33,7 @@
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/vue.min.js"></script>
 </head>
-<body>
+<body style="position: fixed;width: 100%;height: 100%;top: 0;left: 0;">
     <div id="app">
         <!--加载页-->
         <div id="load" v-if="idx == 0">
@@ -383,7 +383,7 @@
             data:{
                 num:1,
                 timer1:null,
-                idx:6,
+                idx:1,
                 //按钮状态
                 button:false,
                 popUp:1,
@@ -435,14 +435,14 @@
 
             },
             updated:function(){
-
+                this.$nextTick(function () {
+                    $('#app #sharePopUp,#app #activityDesc,#app #popUp1').show();
+                })
             },
             mounted:function () {
 
                 this.$nextTick(function () {
                     //弹窗加载
-                    console.log(1)
-                    $('#app #sharePopUp,#app #activityDesc,#app #popUp1').show();
                     if(this.idx == 1){
                         $('#index .img02,#index .img04,#index .img03,#index .img05,#index .img10,#index .img06,#index .img07').hide();
                         $('#index .img02').show().addClass('animated bounceIn')
