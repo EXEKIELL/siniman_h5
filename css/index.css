@@ -143,6 +143,189 @@
         display: flex;
         margin: auto;
         width: 85%; }
+  #app #index2 {
+    width: 100%;
+    height: 100%;
+    position: relative; }
+    #app #index2 > div {
+      width: 100%;
+      position: absolute; }
+      #app #index2 > div img {
+        width: 100%;
+        margin: auto; }
+    #app #index2 .list1 {
+      top: 1.25rem; }
+      #app #index2 .list1 img {
+        width: 60%; }
+    #app #index2 .list2 {
+      width: 100%;
+      top: 2.3rem;
+      font-size: 0.3rem;
+      color: #ffffff;
+      text-align: center; }
+      #app #index2 .list2 > div {
+        width: 60%;
+        display: inline-block;
+        background: url("../img/bj04.png") no-repeat;
+        background-size: 100%;
+        background-position: 0 50%; }
+    #app #index2 .list3 {
+      top: 3.35rem; }
+      #app #index2 .list3 > div {
+        width: 45%;
+        margin: auto;
+        background: url("../img/img12.png") no-repeat;
+        background-size: 100% 100%;
+        height: 3.8rem;
+        padding: 0.01rem; }
+        #app #index2 .list3 > div img {
+          width: 85%;
+          margin-top: 0.17rem; }
+    #app #index2 .list4 {
+      top: 7.8rem; }
+      #app #index2 .list4 img {
+        width: 78%; }
+    #app #index2 .list5 {
+      top: 10.8rem; }
+      #app #index2 .list5 > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        width: 50%; }
+  #app #index3 {
+    width: 100%;
+    height: 100%;
+    position: relative; }
+    #app #index3 > div {
+      width: 100%;
+      position: absolute; }
+      #app #index3 > div img {
+        width: 100%;
+        margin: auto; }
+    #app #index3 .list1 {
+      top: 1.25rem; }
+      #app #index3 .list1 img {
+        width: 40%; }
+    #app #index3 .list2 {
+      width: 100%;
+      top: 2.3rem;
+      font-size: 0.3rem;
+      color: #ffffff;
+      text-align: center; }
+      #app #index3 .list2 > div {
+        width: 60%;
+        display: inline-block;
+        background: url("../img/bj04.png") no-repeat;
+        background-size: 100%;
+        background-position: 0 50%; }
+    #app #index3 .list3 {
+      top: 3.35rem; }
+      #app #index3 .list3 > div {
+        width: 45%;
+        margin: auto;
+        background: url("../img/img12.png") no-repeat;
+        background-size: 100% 100%;
+        height: 3.8rem;
+        padding: 0.01rem; }
+        #app #index3 .list3 > div img {
+          width: 85%;
+          margin-top: 0.17rem; }
+    #app #index3 .list4 {
+      top: 7.8rem; }
+      #app #index3 .list4 img {
+        width: 78%; }
+    #app #index3 .list5 {
+      top: 10.8rem; }
+      #app #index3 .list5 > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        width: 50%; }
+  #app #message {
+    width: 100%;
+    height: 100%;
+    position: relative; }
+    #app #message > div {
+      position: absolute;
+      width: 100%; }
+      #app #message > div img {
+        width: 100%;
+        margin: auto; }
+    #app #message .list1 {
+      top: 0.25rem;
+      left: 0.25rem;
+      width: 17%; }
+    #app #message .list2 {
+      top: 1.85rem; }
+      #app #message .list2 img {
+        width: 60%; }
+    #app #message .input {
+      top: 3.5rem;
+      width: 100%; }
+      #app #message .input .inwrap {
+        margin: auto;
+        width: 90%; }
+        #app #message .input .inwrap > div {
+          background: url("../img/bj05.png") no-repeat;
+          background-size: 100% 100%;
+          position: relative;
+          height: 1.2rem;
+          display: flex;
+          justify-content: left;
+          align-items: center; }
+          #app #message .input .inwrap > div > div {
+            display: flex;
+            justify-content: left;
+            position: relative;
+            align-items: center;
+            margin-top: -0.17rem;
+            margin-left: 0.5rem;
+            width: 90%; }
+            #app #message .input .inwrap > div > div span {
+              font-size: 0.3rem;
+              color: #fae567; }
+            #app #message .input .inwrap > div > div input {
+              background-color: transparent;
+              border: 0;
+              font-size: 0.28rem;
+              color: #ffffff; }
+            #app #message .input .inwrap > div > div input::placeholder {
+              color: #fa2821; }
+            #app #message .input .inwrap > div > div .icon {
+              position: absolute;
+              right: 0.2rem;
+              top: 0;
+              width: 0.2rem;
+              height: 0.4rem;
+              background: url("../img/icon02.png") no-repeat;
+              background-size: 100% 100%; }
+    #app #message .list3 {
+      top: 10.45rem; }
+      #app #message .list3 img {
+        width: 50%; }
+  #app #winList {
+    width: 100%;
+    height: 108%;
+    position: relative;
+    background: url("../img/bj07.png") no-repeat;
+    background-size: 100% 100%;
+    background-position: 0 -1rem; }
+    #app #winList > div {
+      width: 100%;
+      position: absolute; }
+      #app #winList > div img {
+        width: 100%;
+        margin: auto; }
+    #app #winList .list1 {
+      width: 18%;
+      top: 0.25rem;
+      left: 0.25rem; }
+    #app #winList .list2 {
+      top: 0.9rem; }
+      #app #winList .list2 img {
+        width: 60%; }
   #app #paySuccess {
     width: 100%;
     height: 100%;

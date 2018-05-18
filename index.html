@@ -93,13 +93,13 @@
             <div class="list1">
                 <img src="__COUIMG__/img/img11.png" alt="">
             </div>
-            <if condition="$coupon['code']">
-            <div class="list2">
+
+            <div class="list2" v-if="code">
                 <div>
-                    <span>您的抽奖码：<{$coupon['code']}></span>
+                    <span>您的抽奖码：{{ code }}</span>
                 </div>
             </div>
-            </if>
+
             <div class="list3">
                 <div>
                     <img src="__COUIMG__/img/erweima.png" alt="">
@@ -116,6 +116,152 @@
                     <div>
                         <img src="__COUIMG__/img/button06.png" alt="">
                     </div>
+                </div>
+            </div>
+        </div>
+        <!--信息提交成功-->
+        <div id="index2" v-if="idx == 4">
+            <div class="list1">
+                <img src="__COUPON__/img/img14.png" alt="">
+            </div>
+            <div class="list2">
+                <div>
+                    <span>您的抽奖码：369875</span>
+                </div>
+            </div>
+            <div class="list3">
+                <div>
+                    <img src="__COUPON__/img/erweima.png" alt="">
+                </div>
+            </div>
+            <div class="list4">
+                <img src="__COUPON__/img/img13.png" alt="">
+            </div>
+            <div class="list5">
+                <div>
+                    <div>
+                        <img src="__COUPON__/img/button07.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--我的卡券-->
+        <div id="index3" v-if="idx == 5">
+            <div class="list1">
+                <img src="__COUPON__/img/img15.png" alt="">
+            </div>
+            <div class="list2">
+                <div>
+                    <span>您的抽奖码：369875</span>
+                </div>
+            </div>
+            <div class="list3">
+                <div>
+                    <img src="__COUPON__/img/erweima.png" alt="">
+                </div>
+            </div>
+            <div class="list4">
+                <img src="__COUPON__/img/img13.png" alt="">
+            </div>
+            <div class="list5">
+                <div>
+                    <div>
+                        <img src="__COUPON__/img/button05.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--填写个人信息-->
+        <div id="message" v-if="idx == 6">
+            <div class="list1">
+                <img src="__COUPON__/img/button08.png" alt="">
+            </div>
+            <div class="list2">
+                <img src="__COUPON__/img/title01.png" alt="">
+            </div>
+            <div class="input">
+                <div class="inwrap">
+                    <div class="input1">
+                        <div>
+                            <span>姓名：</span>
+                            <input type="text" placeholder="请输入姓名">
+                        </div>
+                    </div>
+                    <div class="input2">
+                        <div>
+                            <span>电话：</span>
+                            <input type="text" placeholder="请输入11位手机号码">
+                        </div>
+                    </div>
+                    <div class="input3">
+                        <div>
+                            <span>省市区：</span>
+                            <input type="text" placeholder="请选择">
+                            <div class="icon"></div>
+                        </div>
+                    </div>
+                    <div class="input4">
+                        <div>
+                            <span>店名：</span>
+                            <input type="text" placeholder="请输入店名">
+                        </div>
+                    </div>
+                    <div class="input5">
+                        <div>
+                            <span>定制产品：</span>
+                            <input type="text" placeholder="请选择">
+                            <div class="icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="list3">
+                <div>
+                    <img src="__COUPON__/img/button03.png" alt="">
+                </div>
+            </div>
+        </div>
+        <!--中奖名单-->
+        <div id="winList" v-if="idx == 7">
+            <div class="list1">
+                <img src="__COUPON__/img/button08.png" alt="">
+            </div>
+            <div class="list2">
+                <img src="__COUPON__/img/title02.png" alt="">
+            </div>
+            <div class="list3" v-if="false">
+                <img src="__COUPON__/img/img16.png" alt="">
+            </div>
+            <div class="list4" v-if="false">
+                <div class="nav">
+                    <div>
+                        <img src="__COUPON__/img/icon03.png.png" alt="">
+                    </div>
+                    <div>
+                        <img src="__COUPON__/img/icon04.png" alt="">
+                    </div>
+                    <div>
+                        <img src="__COUPON__/img/icon05.png" alt="">
+                    </div>
+                    <div>
+                        <img src="__COUPON__/img/icon06.png" alt="">
+                    </div>
+                </div>
+                <div class="cont">
+                    <div class="c1">
+                        <div>
+                            <img src="__COUPON__/img/head01.png" alt="">
+                        </div>
+                        <div>
+                            <div>
+                                <img src="__COUPON__/img/top.png" alt="">
+                            </div>
+                            <div>
+                                <span>王俊凯 来自网易用户 138****3652</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -174,7 +320,8 @@
                 token:'<{$token}>',
                 msg:'',
                 step:'<{$step}>',
-                status:'<{$status}>'
+                status:'<{$status}>',
+                code:"<{isset($coupon['code'])?$coupon['code']?:''}>"
             },
 
             mounted:function () {
@@ -209,7 +356,6 @@
                 })
             },
             methods:{
-
                 buy:function(){
                     layer.load(2,{
                         shade:0.6
