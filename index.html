@@ -14,6 +14,19 @@
         #app #popUp1{
             z-index: 999;
         }
+         #sharePopUp{
+             display: block !important;
+         }
+        .inline{
+            background: url(__COUIMG__/img/bj08.png) no-repeat;
+            background-size:cover;
+            height: 1.2rem;
+            width: 3rem !important;
+            margin-top: 0.17rem;
+        }
+        .inline select{
+            margin: 0 auto;
+        }
     </style>
     <!--rem单位-->
     <script>
@@ -44,7 +57,7 @@
         var imgpath='__COUIMG__';
     </script>
 </head>
-<body>
+<body style="position: fixed;width: 100%;height: 100%;top: 0;left: 0;">
     <div id="app">
         <!--加载页-->
         <div id="load" v-if="idx == 0">
@@ -76,7 +89,7 @@
 
             <div class="img08" v-on:click="popUp=2"><img src="__COUIMG__/img/left01.png" alt=""></div>
 
-            <div class="img09" v-on:click="winList"><img src="__COUIMG__/img/left02.png" alt=""></div>
+            <div class="img09" v-on:click="winList(0)"><img src="__COUIMG__/img/left02.png" alt=""></div>
             <div class="img10" v-on:click=""><img src="__COUIMG__/img/img06.png" alt=""></div>
 
         </div>
@@ -123,7 +136,7 @@
                     <div v-on:click="idx=1">
                         <img src="__COUIMG__/img/button05.png" alt="">
                     </div>
-                    <div v-on:click="popUp=2">
+                    <div v-on:click="popUp=0">
                         <img src="__COUIMG__/img/button06.png" alt="">
                     </div>
                 </div>
@@ -175,7 +188,7 @@
             </div>
             <div class="list5">
                 <div>
-                    <div>
+                    <div v-on:click="idx=1">
                         <img src="__COUPON__/img/button05.png" alt="">
                     </div>
                 </div>
@@ -206,46 +219,44 @@
 
                         </div>
                     </div>
-                    <div class="input3">
-                        <div>
-                            <span>省市区：</span>
-
-                            <div>
-                                <div class="inline">
-                                    <select name="province" id="province" v-on:change="region('province',1,'city')">
-                                        <option value="1"></option>
-                                    </select>
-                                </div>
-                                <div class="inline">
-                                    <select name="city" id="city" v-on:change="region('city',2,'area')">
-                                        <option value="1"></option>
-                                    </select>
-                                </div>
-                                <div class="inline">
-                                    <select name="area" id="area"  v-on:change="getShop()">
-                                        <option value="1"></option>
-                                    </select>
-                                </div>
+                    <div class="input3" style="background: none">
+                        <div style="margin-left: 0;width: 98%">
+                            <div class="inline">
+                                <select name="province" id="province" v-on:change="region('province',1,'city')">
+                                    <option value="">请选择省份</option>
+                                    <option value="1">北京</option>
+                                    <option value="2">广东省</option>
+                                </select>
+                            </div>
+                            <div class="inline">
+                                <select name="city" id="city" v-on:change="region('city',2,'area')">
+                                    <option value="">请选择城市</option>
+                                </select>
                             </div>
 
-                            <div class="icon"></div>
+                            <div class="inline">
+                                <select name="area" id="area"  v-on:change="getShop()">
+                                    <option value="">请选择地区</option>
+                                </select>
+                            </div>
+
+                            <!--<div class="icon"></div>-->
                         </div>
                     </div>
                     <div class="input4">
                         <div>
-                            <span>店名：</span>
+                            <span>门店：</span>
                             <select name="shop" id="shop">
-                                <option value="">请选择</option>
+                                <option value="">请选择门店</option>
                                 <option v-for="item in shops" :value="item.id">{{ item.name }}</option>
                             </select>
                         </div>
                     </div>
                     <div class="input5">
-                        <div>
+                        <div style="font-size: 0">
                             <span>定制产品：</span>
-
-                            <div class="inline">
-                                <select name="address" id="">
+                            <div>
+                                <select name="address" id="" placeholder="请选择">
                                     <option value="全屋定制">全屋定制</option>
                                     <option value="橱柜">橱柜</option>
                                     <option value="门窗">门窗</option>
@@ -301,7 +312,7 @@
 
                             </div>
                         </div>
-                        <div class="c1">
+                        <div class="c1" v-for="item in ">
                             <div>
                                 <div>
                                     <div>
@@ -324,32 +335,31 @@
             </div>
         </div>
         <!--分享页弹窗-->
-        <div id="sharePopUp" v-if="popUp == 0" @click="close">
+        <div id="sharePopUp" v-if="popUp == 0" v-on:click="popUp=1">
             <div>
                 <img src="__COUIMG__/img/share01.png" alt="">
             </div>
         </div>
         <!--活动说明弹窗-->
         <div id="activityDesc" v-if="popUp == 2">
-
-            <div class="wrap">
-                <div class="list1">
-                    <img src="__COUIMG__/img/img07.png" alt="">
-                </div>
-                <div class="list2">
-
-                    <div>
-                        <img src="__COUIMG__/img/button03.png" alt="">
+            <div>
+                <div class="wrap">
+                    <div class="list1">
+                        <img src="__COUIMG__/img/img07.png" alt="">
                     </div>
-                </div>
-                <div class="list3">
-                    <img src="__COUIMG__/img/icon01.png" alt="">
-                    <div></div>
-                    <div @click="close">
-                        <img src="__COUIMG__/img/button03.png" alt="">
+                    <div class="list2">
+                        <div v-on:click="popUp=1">
+                            <img src="__COUIMG__/img/button03.png" alt="">
+                        </div>
+                    </div>
+                    <div class="list3" v-on:click="popUp=1">
+                        <img src="__COUIMG__/img/icon01.png" alt="">
+                        <div></div>
+
                     </div>
                 </div>
             </div>
+
         </div>
         <!--提交失败弹窗-->
         <div id="popUp1" v-if="popUp == 3">
@@ -378,7 +388,7 @@
         var App = new Vue({
             el:'#app',
             data:{
-                idx:1,
+                idx:0,
                 num:1,
                 timer1:null,
                 //按钮状态
@@ -395,9 +405,8 @@
                     {className:'top3',isSel:false},
                     {className:'top4',isSel:false},
                 ],
-                form:{
-
-                }
+                shops:[],
+                winners:[]
             },
 
 
@@ -405,6 +414,9 @@
 
             },
             updated:function(){
+                this.$nextTick(function () {
+                    $('#app #sharePopUp,#app #activityDesc,#app #popUp1').show();
+                });
 
             },
 
@@ -414,11 +426,13 @@
                 if(_this.step==2){
                     _this.idx=2;
                 }
+                $('#sharePopUp').css({
+                    'display':'block'
+                });
                 this.$nextTick(function () {
                     //弹窗加载
 
 
-                    $('#app #sharePopUp,#app #activityDesc,#app #popUp1').show();
                     if(this.idx == 1){
                         $('#index .img02,#index .img04,#index .img03,#index .img05,#index .img10,#index .img06,#index .img07').hide();
                         $('#index .img02').show().addClass('animated bounceIn')
@@ -463,8 +477,14 @@
                     $(e).addClass('sel')
                 },
                 /*中奖名单*/
-                winList:function(){
-
+                winList:function(type){
+                    var _this=this;
+                    var url="<{:url('coupon/winList')}>";
+                    $.get(url,{type:type},function (res) {
+                        if(!res){
+                            _this.idx=3;
+                        }
+                    },'JSON');
                 },
                 buy:function(){
                     layer.load(2,{
@@ -497,7 +517,7 @@
                             _this.idx=2;
                             break;
                         case 2:
-                            _this.idx=3;
+                            _this.idx=5;
                             break;
                         default:
                             _this.idx=3;
