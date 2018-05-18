@@ -160,9 +160,6 @@
         </div>
         <!--填写个人信息-->
         <div id="message" v-if="idx == 6">
-            <select name="sel" id="se">
-                <option value="请选择省">请选择省</option>
-            </select>
             <div class="list1">
                 <img src="img/button08.png" alt="">
             </div>
@@ -364,7 +361,7 @@
         var App = new Vue({
             el:'#app',
             data:{
-                idx:6,
+                idx:0,
                 //按钮状态
                 button:false,
                 popUp:1,
