@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class="list4">
-                <span>13%</span>
+                <span>{{num}}%</span>
             </div>
         </div>
         <!--首页-->
@@ -361,6 +361,8 @@
         var App = new Vue({
             el:'#app',
             data:{
+                num:1,
+                timer1:null,
                 idx:0,
                 //按钮状态
                 button:false,
@@ -390,6 +392,7 @@
                 },
                 activityShow:function () {
                     this.popUp = 2
+                    console.log(1)
                 },
                 close:function () {
                     this.popUp = 1
@@ -408,33 +411,53 @@
                     this.idx = 6
                 },
             },
+            watch:function(){
+
+            },
+            updated:function(){
+
+            },
             mounted:function () {
 
                 this.$nextTick(function () {
                     //弹窗加载
-                    $('#sharePopUp,#activityDesc,#popUp1').show();
-                    // this.show1 = true
-                    $('#index .img02,#index .img04,#index .img03,#index .img05,#index .img10,#index .img06,#index .img07').hide();
-                    $('#index .img02').show().addClass('animated bounceIn')
-                    setTimeout(function () {
-                        $('#index .img04').show().addClass('animated bounceIn')
-                    },100)
-                    setTimeout(function () {
-                        $('#index .img03').show().addClass('animated bounceIn')
-                    },300)
-                    setTimeout(function () {
-                        $('#index .img05').show().addClass('animated bounceIn')
-                    },600)
-                    setTimeout(function () {
-                        $('#index .img10').show().addClass('animated bounceIn')
-                    },1000)
-                    setTimeout(function () {
-                        $('#index .img06').show().addClass('animated bounceIn')
-                    },1000)
-                    setTimeout(function () {
-                        $('#index .img07').show().addClass('animated bounceIn')
-                    },1200)
-
+                    console.log(1)
+                    $('#app #sharePopUp,#app #activityDesc,#app #popUp1').show();
+                    if(this.idx == 1){
+                        $('#index .img02,#index .img04,#index .img03,#index .img05,#index .img10,#index .img06,#index .img07').hide();
+                        $('#index .img02').show().addClass('animated bounceIn')
+                        setTimeout(function () {
+                            $('#index .img04').show().addClass('animated bounceIn')
+                        },100)
+                        setTimeout(function () {
+                            $('#index .img03').show().addClass('animated bounceIn')
+                        },300)
+                        setTimeout(function () {
+                            $('#index .img05').show().addClass('animated bounceIn')
+                        },600)
+                        setTimeout(function () {
+                            $('#index .img10').show().addClass('animated bounceIn')
+                        },1000)
+                        setTimeout(function () {
+                            $('#index .img06').show().addClass('animated bounceIn')
+                        },1000)
+                        setTimeout(function () {
+                            $('#index .img07').show().addClass('animated bounceIn')
+                        },1200)
+                    }
+                    //加载
+                    if(this.idx == 0){
+                        const that = this
+                        this.timer1 = setInterval(function () {
+                            if(that.num>100){
+                                that.idx = 1
+                                clearInterval(that.timer1)
+                            }else{
+                                that.num++;
+                                $('#load .loading').css('width',that.num+'%')
+                            }
+                        },10)
+                    }
                 })
             }
         })
