@@ -7,7 +7,7 @@
     <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
     <meta content="telephone=no" name="format-detection"/>
 
-    <title>诗尼曼15周年庆</title>
+    <title>诗尼曼15周年狂欢惠，报名成功即送价值288元三件套锅，限量200名！</title>
     <link rel="stylesheet" href="__COUPON__/css/reset.css" />
     <link rel="stylesheet" href="__COUPON__/css/animate.min.css">
     <link rel="stylesheet" href="__COUPON__/css/index.css">
@@ -32,7 +32,7 @@
         }
         function share(){
             wx.onMenuShareTimeline({
-                title: '诗尼曼15周年庆',
+                title: '诗尼曼15周年狂欢惠，报名成功即送价值288元三件套锅，限量200名！',
                 desc: '购15周年纪念卡，尊享两重特惠',
                 link: "http://juice.hengdikeji.com/coupon/home",
                 imgUrl: 'http://juice.hengdikeji.com/temp/coupon/index/img/shareImg.png',
@@ -53,7 +53,7 @@
                 }
             });
             wx.onMenuShareAppMessage({
-                title: '诗尼曼15周年庆',
+                title: '诗尼曼15周年狂欢惠，报名成功即送价值288元三件套锅，限量200名！',
                 desc: '购15周年纪念卡，尊享两重特惠',
                 link: "http://juice.hengdikeji.com/coupon/home",
                 imgUrl: 'http://juice.hengdikeji.com/temp/coupon/index/img/shareImg.png',
@@ -85,16 +85,34 @@
              display: block !important;
          }
         .inline{
+            position: relative;
+        }
+        .inline .at{
+            font-size: 0.28rem;
+            color: #fff;
             background: url(__COUIMG__/img/bj08.png) no-repeat;
             background-size:cover;
             height: 1.2rem;
-            width: 3rem !important;
+            line-height: 1.2rem;
+            width: 2.2rem !important;
             margin-top: 0.17rem;
             margin-bottom: 0.17rem;
+            text-align: center;
+            text-align-last: center;
+            display: block;
         }
         .inline select{
-            margin: 0 auto;
+
+            height: 1.2rem;
+            width: 2.2rem !important;
+            z-index: 99;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
+
+
         #music {
             position: fixed;
             top: 0.4rem;
@@ -102,8 +120,22 @@
             width: 32px;
             height: 32px;
             z-index: 10000; }
+        .address_radio{
+            width: 70%;font-size: 0.28rem;color: #fff
+        }
+        .address_radio label{
+            margin-left: 0.1rem;
+        }
 
+        select {
+            /*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
+            border: solid 1px #000;
 
+            /*很关键：将默认的select选择框样式清除*/
+            appearance:none;
+            -moz-appearance:none;
+            -webkit-appearance:none;
+        }
     </style>
     <!--rem单位-->
     <script>
@@ -136,6 +168,9 @@
 </head>
 <body style="position: fixed;width: 100%;height: 100%;top: 0;left: 0;">
     <div id="app">
+        <div style="display: none">
+            <script src="https://s22.cnzz.com/z_stat.php?id=1273736700&web_id=1273736700" language="JavaScript"></script>
+        </div>
         <!--加载页-->
         <div id="load" v-if="idx == 0">
             <div class="list1"><img src="__COUIMG__/img/loadLogo.png" alt=""></div>
@@ -202,7 +237,7 @@
 
             <div class="list3">
                 <div>
-                    <img src="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=<{$Qcode}>" alt="">
+                    <img src="__COUIMG__/img/ecode.png" alt="">
                 </div>
             </div>
             <div class="list4">
@@ -231,7 +266,7 @@
             </div>
             <div class="list3">
                 <div>
-                    <img src="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=<{$Qcode}>" alt="">
+                    <img src="__COUIMG__/img/ecode.png" alt="">
                 </div>
             </div>
             <div class="list4">
@@ -257,7 +292,7 @@
             </div>
             <div class="list3">
                 <div>
-                    <img src="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=<{$Qcode}>" alt="">
+                    <img src="__COUIMG__/img/ecode.png" alt="">
                 </div>
             </div>
             <div class="list4">
@@ -296,24 +331,28 @@
 
                         </div>
                     </div>
+
                     <div class="input3" style="background: none">
                         <div style="margin-left: 0;width: 98%">
                             <div class="inline">
+                                <div class="at province_text">{{ province }}</div>
                                 <select name="province" id="province" v-on:change="region('province',1,'city')">
                                     <option value="">请选择省份</option>
-                                    <option value="1">北京</option>
-                                    <option value="2">广东省</option>
+                                    <option v-for="item in provinceList" :value="item.id">{{ item.name }}</option>
                                 </select>
                             </div>
                             <div class="inline">
-                                <select name="city" id="city" v-on:change="region('city',2,'area')">
-                                    <option value="">请选择城市</option>
+                                <div class="at city_text">{{ city }}</div>
+                                <select name="city" id="city"  v-on:change="region('city',2,'area')">
+                                    <option v-for="item in cityList" :value="item.id">{{ item.name }}</option>
+
                                 </select>
                             </div>
 
                             <div class="inline">
-                                <select name="area" id="area"  v-on:change="getShop()">
-                                    <option value="">请选择地区</option>
+                                <div class="at area_text">{{ area }}</div>
+                                <select name="area" id="area" v-on:change="getShop()">
+                                    <option v-for="item in areaList" :value="item.id">{{ item.name }}</option>
                                 </select>
                             </div>
 
@@ -325,8 +364,7 @@
                             <span>门&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;店：</span>
                             <divs style="width: 70%">
                                 <select name="shop" id="shop" style="width: 100%">
-                                    <option value="">请选择门店</option>
-                                    <option v-for="item in shops" :value="item.id">{{ item.name }}</option>
+                                    <option v-for="item in shops" :value="item.value">{{ item.shortName }}</option>
                                 </select>
                             </divs>
 
@@ -336,15 +374,20 @@
                     <div class="input5">
                         <div style="font-size: 0">
                             <span>定制产品：</span>
-                            <div style="width: 70%">
-                                <select name="address" id="" placeholder="请选择" style="width: 100%">
-                                    <option value="全屋定制">全屋定制</option>
-                                    <option value="橱柜">橱柜</option>
-                                    <option value="门窗">门窗</option>
-                                </select>
+                            <div class="address_radio">
+                                <label for="" >
+                                    <input type="radio" name="address" value="全屋定制" checked> 全屋定制
+                                </label>
+                                <label for="">
+                                    <input type="radio" name="address" value="橱柜"> 橱柜
+                                </label>
+                                <label for="">
+                                    <input type="radio" name="address" value="门窗"> 门窗
+                                </label>
+
                             </div>
 
-                            <div class="icon"></div>
+                            <!--<div class="icon"></div>-->
                         </div>
                     </div>
                 </div>
@@ -452,8 +495,10 @@
             </div>
         </div>
     </div>
-    <img src="img/music.png" id="music" />
-    <audio src="music/music01.mp3" hidden="hidden" preload loop="loop" autoplay="autoplay" id="bg"></audio>
+    <img src="__COUIMG__/img/music.png" id="music" />
+    <!--<audio src="__COUIMG__/img/music01.mp3" hidden="hidden" preload loop="loop" autoplay="autoplay" id="bg"></audio>-->
+    <audio src="" hidden="hidden" preload loop="loop" autoplay="autoplay" id="bg"></audio>
+
     <script>
         layui.use('layer', function(){
             var layer = layui.layer;
@@ -478,11 +523,18 @@
                     {className:'top3',isSel:false,type:2},
                     {className:'top4',isSel:false,type:3}
                 ],
-                shops:[],
-                winners:[]
+                shops:[{
+                    shortName:'请选择门店',
+                    value:null
+                }],
+                winners:[],
+                provinceList:[],
+                cityList:[{id:'',name:'请选择城市'}],
+                areaList:[{id:'',name:'请选择地区'}],
+                province:"请选择省份",
+                city:"请选择城市",
+                area:"请选择地区"
             },
-
-
             watch:function(){
 
             },
@@ -491,14 +543,25 @@
                     $('#app #sharePopUp,#app #activityDesc,#app #popUp1').show();
                 });
             },
+            created:function(){
+                var _this=this;
+                /*
+                 * 获取省份
+                 * */
+                var url="http://newcrm.snimay.com/api/temp/getAreaCodes";
+                $.get(url,function(res){
+                    _this.provinceList=res.attributes.list;
 
+                });
+            },
             mounted:function () {
                 function audioAutoPlay(id){
                     var audio = document.getElementById(id);
-                    audio.play();
-
-
+//                    audio.play();
                 var _this=this;
+
+
+
                 if(_this.step==2){
                     _this.idx=6;
                 }
@@ -507,7 +570,7 @@
                 });
 
                     document.addEventListener("WeixinJSBridgeReady", function () {
-                        audio.play();
+//                        audio.play();
                     }, false);
                 }
                 audioAutoPlay('bg');
@@ -620,10 +683,16 @@
                     var _this=this;
                     var uname=$('[name="uname"]').val();
                     var mobile=$('[name="mobile"]').val();
-                    var province=$('[name="province"]').text();
-                    var city=$('[name="city"]').text();
-                    var area=$('[name="area"]').text();
+                    var province=$('[name="province"] option:selected').text();
+                    var city=$('[name="city"] option:selected').text();
+                    var area=$('[name="area"] option:selected').text();
                     var shop=$('[name="shop"]').val();
+
+                    if(_this.shops[0].value!=null && shop==null){
+                        _this.popUp=3;
+                        _this.msg='请选择门店';
+                        return false;
+                    }
                     var address=$('[name="address"]').val();
                     var url="<{:url('coupon/update')}>";
                     $.post(url,{
@@ -650,30 +719,69 @@
                     },'JSON')
                 },
                 region:function(div,type,obj){
-                    var url="<{:url('coupon/region')}>";
+                    var _this=this;
+                    var url="http://newcrm.snimay.com/api/temp/getAreaCodes";
                     var val=$('#'+div).val();
+                    var text=$('#'+div+' option:selected').text();
+
                     $.get(url,{
-                        id:val,
-                        type:type
+                        parentId:val
                     },function(res){
-                        $('#'+obj).html(res.list);
                         if(type==1){
-                            $('#area').html(res.list2);
+                            _this.cityList=res.attributes.list;
+
+                            _this.province=text;
+
+                            _this.city=_this.cityList[0].name;
+
+                            $.get(url,{
+                                parentId:_this.cityList[0].id
+                            },function(res2){
+                                _this.areaList=res2.attributes.list;
+                                _this.area=_this.areaList[0].name;
+                                _this.$nextTick(function(){
+                                    _this.getShop();
+                                });
+
+                            },'JSON')
+
+                        }else if(type==2){
+                            _this.city=text;
+
+                            _this.areaList=res.attributes.list;
+                            _this.area=_this.areaList[0].name;
+
+                            _this.$nextTick(function(){
+                                _this.getShop();
+                            });
                         }
                     },'JSON');
                 },
                 getShop:function () {
                     var _this=this;
-                    var province=$('#province').val();
-                    var city=$('#province').val();
-                    var area=$('#area').val();
-                    var url="<{:url('coupon/getshop')}>";
+                    var province=$('[name="province"] option:selected').val();
+                    var city=$('[name="city"] option:selected').val();
+
+                    var area=$('[name="area"] option:selected').val();
+
+                    var area_text=$('[name="area"] option:selected').text();
+
+                    _this.area=area_text;
+
+                    var url="http://newcrm.snimay.com/api/temp/getShops";
                     $.get(url,{
-                        province:province,
-                        city:city,
-                        area:area,
+                        areaId:area
                     },function (res) {
-                        _this.shops=res;
+                        var list=res.attributes.list;
+                        if(list.length>=1){
+                            _this.shops=list;
+                        }else{
+                            _this.shops=[{
+                                shortName:'此地区没有门店',
+                                value:null
+                            }];
+                        }
+
                     },'JSON');
                 }
             }
